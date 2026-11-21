@@ -1,0 +1,17 @@
+{
+  "name": "Inglizcha - Ingliz tilini o'rganing",
+  "short_name": "Inglizcha",
+  "description": "Ingliz tilini o'zbek tilida oson o'rganish.",
+  "start_url": "./inglizcha.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#f5f6ff",
+  "theme_color": "#4f46e5",
+  "lang": "uz",
+  "icons": [
+    { "src": "inglizcha-icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "inglizcha-icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "inglizcha-icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}
