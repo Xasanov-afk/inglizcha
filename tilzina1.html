@@ -1,0 +1,1169 @@
+<!doctype html>
+<html lang="uz">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#174270">
+<link rel="manifest" href="tilzina1-manifest.json">
+<link rel="icon" href="tilzina1-icon-192.png">
+<title>ENGLISH TILZINA 1</title>
+<style>
+:root{--bg:#f2f7fc;--card:#fff;--p:#1b6fae;--p2:#e6f2fb;--t:#0f2a4a;--m:#6b7280;--ok:#16a34a;--no:#dc2626;--okbg:#dcfce7;--nobg:#fee2e2;--sh:0 1px 3px rgba(0,0,0,.1)}
+@media(prefers-color-scheme:dark){:root{--bg:#0a1a2e;--card:#12294a;--p:#4cb8ea;--p2:#1a3a60;--t:#eaf4fb;--m:#9ca3af;--okbg:#14532d;--nobg:#7f1d1d}}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;background:var(--bg);color:var(--t);min-height:100vh}
+#app{max-width:520px;margin:0 auto;padding:16px 16px calc(32px + env(safe-area-inset-bottom))}
+h1{font-size:26px;margin:6px 0 14px}h2{font-size:20px;margin:6px 0 10px}
+button{font-family:inherit}
+.hero{display:flex;gap:10px;margin-bottom:16px}
+.hero>div{flex:1;background:var(--card);border-radius:16px;padding:12px;text-align:center;box-shadow:var(--sh)}
+.hero b{display:block;font-size:20px}.hero span{font-size:12px;color:var(--m)}
+.menu{display:flex;flex-direction:column;align-items:flex-start;width:100%;background:var(--card);color:var(--t);border:0;border-radius:18px;padding:16px 18px;margin-bottom:12px;box-shadow:var(--sh);cursor:pointer;text-align:left;position:relative}
+.menu i{font-style:normal;font-size:28px;position:absolute;right:18px;top:50%;transform:translateY(-50%)}
+.menu b{font-size:19px}.menu span{font-size:13px;color:var(--m);margin-top:2px}
+.back{background:none;border:0;color:var(--p);font-size:16px;padding:8px 0;cursor:pointer}
+.sec{font-size:13px;font-weight:600;color:var(--m);margin:20px 0 8px;letter-spacing:.04em}
+.meta{font-size:13px;color:var(--m)}
+.grid5{display:grid;grid-template-columns:repeat(5,1fr);gap:8px}
+.cell{aspect-ratio:1;background:var(--card);border-radius:12px;box-shadow:var(--sh);position:relative;display:flex;align-items:center;justify-content:center;font-size:26px}
+.cell small{position:absolute;top:4px;left:6px;font-size:10px;color:var(--m)}
+.cell.fut{opacity:.45;font-size:16px;color:var(--m)}
+.cell.now{outline:3px solid var(--p)}
+.legend{display:flex;flex-direction:column;gap:6px;margin-top:16px;font-size:14px;color:var(--m)}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.tile{background:var(--card);color:var(--t);border:2px solid transparent;border-radius:14px;padding:10px 12px;text-align:left;box-shadow:var(--sh);cursor:pointer;min-height:64px;display:flex;flex-direction:column;justify-content:center}
+.tile b{font-size:13px;color:var(--p)}.tile span{font-size:14px;line-height:1.25;margin-top:2px}
+.tile.lock{opacity:.5}.tile.done{border-color:var(--ok)}
+.words{background:var(--card);border-radius:16px;box-shadow:var(--sh);padding:4px 14px}
+.wr{display:flex;align-items:center;gap:10px;padding:10px 0;border-bottom:1px solid var(--p2)}
+.wr:last-child{border:0}.wr .n{width:22px;color:var(--m);font-size:13px}
+.wr .e{font-weight:600;flex:1}.wr .u{color:var(--m);flex:1;text-align:right}
+.spk{border:0;background:var(--p2);color:var(--p);border-radius:99px;width:38px;height:38px;font-size:17px;cursor:pointer;flex:none}
+button.big{width:100%;border:0;border-radius:16px;padding:15px;font-size:17px;font-weight:600;cursor:pointer;margin-top:12px;background:var(--p);color:#fff}
+button.alt{background:var(--card);color:var(--p);box-shadow:var(--sh)}
+.box{background:var(--card);border-radius:16px;box-shadow:var(--sh);padding:14px 16px;line-height:1.55;font-size:16px}
+.box p{margin:0 0 10px}.box p:last-child{margin:0}
+.ex{display:flex;flex-direction:column;gap:2px;padding:8px 0;border-bottom:1px solid var(--p2)}
+.ex:last-child{border:0}.ex b{font-weight:600}.ex span{color:var(--m);font-size:14px}
+.bar{height:8px;background:var(--p2);border-radius:99px;overflow:hidden;margin:6px 0 4px}
+.bar i{display:block;height:100%;background:var(--p);border-radius:99px;transition:width .3s}
+.q{font-size:24px;font-weight:700;text-align:center;margin:20px 0;line-height:1.3}
+.opt{display:block;width:100%;text-align:left;background:var(--card);color:var(--t);border:2px solid transparent;border-radius:14px;padding:14px 16px;font-size:17px;margin-bottom:10px;cursor:pointer;box-shadow:var(--sh)}
+.opt.ok{background:var(--okbg);border-color:var(--ok)}.opt.no{background:var(--nobg);border-color:var(--no)}
+input.in{width:100%;font-size:18px;padding:14px 16px;border-radius:14px;border:2px solid var(--p2);background:var(--card);color:var(--t);outline:none}
+input.in:focus{border-color:var(--p)}
+.fb{margin-top:12px;padding:12px 14px;border-radius:12px;font-size:16px}
+.fb.ok{background:var(--okbg)}.fb.no{background:var(--nobg)}
+.center{text-align:center}.score{font-size:56px;font-weight:800;color:var(--p);margin:12px 0}
+#toast{position:fixed;left:50%;bottom:28px;transform:translateX(-50%) translateY(80px);background:#174270;color:#fff;padding:10px 16px;border-radius:99px;font-size:14px;opacity:0;transition:.25s;pointer-events:none;z-index:9}
+#toast.on{transform:translateX(-50%);opacity:1}
+.brand{display:flex;align-items:center;gap:12px;margin:6px 0 16px}.lg{background:#fff;border-radius:14px;padding:6px 8px;box-shadow:var(--sh)}.lg img{height:44px;display:block}.bt{font-size:20px;font-weight:800;letter-spacing:.5px;line-height:1.15}.bs{font-size:11px;font-weight:700;letter-spacing:2px;color:var(--p);margin-top:3px}
+@media(prefers-color-scheme:dark){button.big:not(.alt){color:#06223d}}
+</style>
+</head>
+<body>
+<div id="app"></div>
+<div id="toast"></div>
+<script>
+window.WORDS=(window.WORDS||[]).concat([
+  {t:"Oila",w:[["family","oila"],["father","ota"],["mother","ona"],["brother","aka"],["sister","opa"],["son","o'g'il"],["daughter","qiz"],["grandfather","bobo"],["grandmother","buvi"],["uncle","amaki"],["aunt","xola"],["cousin","amakivachcha"],["husband","er"],["wife","xotin"],["parents","ota-ona"],["child","bola"],["baby","chaqaloq"],["grandson","nevara"],["friend","do'st"],["relative","qarindosh"]]},
+  {t:"Salomlashuv",w:[["hello","salom"],["hi","assalomu alaykum"],["good morning","xayrli tong"],["good afternoon","xayrli kun"],["good evening","xayrli kech"],["good night","xayrli tun"],["goodbye","xayr"],["see you","ko'rishguncha"],["please","iltimos"],["thank you","rahmat"],["you're welcome","arzimaydi"],["sorry","kechirasiz"],["yes","ha"],["no","yo'q"],["how are you?","ishlaringiz qalay?"],["I'm fine","yaxshiman"],["my name is","mening ismim"],["nice to meet you","tanishganimdan xursandman"],["excuse me","uzr"],["welcome","xush kelibsiz"]]},
+  {t:"Sonlar",w:[["one","bir"],["two","ikki"],["three","uch"],["four","to'rt"],["five","besh"],["six","olti"],["seven","yetti"],["eight","sakkiz"],["nine","to'qqiz"],["ten","o'n"],["eleven","o'n bir"],["twelve","o'n ikki"],["thirteen","o'n uch"],["fourteen","o'n to'rt"],["fifteen","o'n besh"],["sixteen","o'n olti"],["seventeen","o'n yetti"],["eighteen","o'n sakkiz"],["nineteen","o'n to'qqiz"],["twenty","yigirma"]]},
+  {t:"Ranglar",w:[["red","qizil"],["blue","ko'k"],["green","yashil"],["yellow","sariq"],["black","qora"],["white","oq"],["orange","to'q sariq"],["pink","pushti"],["purple","binafsha"],["brown","jigarrang"],["gray","kulrang"],["gold","tilla rang"],["silver","kumush rang"],["light blue","havorang"],["dark","to'q"],["light","och"],["color","rang"],["beige","bej"],["colorful","rang-barang"],["maroon","to'q qizil"]]},
+  {t:"Oziq-ovqat",w:[["bread","non"],["rice","guruch"],["meat","go'sht"],["chicken","tovuq"],["fish","baliq"],["egg","tuxum"],["cheese","pishloq"],["butter","sariyog'"],["soup","sho'rva"],["salad","salat"],["salt","tuz"],["sugar","shakar"],["pasta","makaron"],["sandwich","buterbrod"],["cake","tort"],["cookie","pechenye"],["honey","asal"],["breakfast","nonushta"],["lunch","tushlik"],["dinner","kechki ovqat"]]},
+  {t:"Ichimliklar",w:[["water","suv"],["tea","choy"],["coffee","kofe"],["milk","sut"],["juice","sharbat"],["soda","gazli ichimlik"],["beer","pivo"],["wine","vino"],["hot chocolate","issiq shokolad"],["lemonade","limonad"],["ice","muz"],["yogurt drink","ayron"],["green tea","ko'k choy"],["black tea","qora choy"],["mineral water","mineral suv"],["cold water","sovuq suv"],["milkshake","sutli kokteyl"],["smoothie","smuzi"],["cocoa","kakao"],["cup","piyola"]]},
+  {t:"Mevalar",w:[["apple","olma"],["banana","banan"],["orange","apelsin"],["grape","uzum"],["lemon","limon"],["pear","nok"],["peach","shaftoli"],["cherry","olcha"],["strawberry","qulupnay"],["watermelon","tarvuz"],["melon","qovun"],["pomegranate","anor"],["apricot","o'rik"],["plum","olxo'ri"],["pineapple","ananas"],["mango","mango"],["fig","anjir"],["raspberry","malina"],["kiwi","kivi"],["fruit","meva"]]},
+  {t:"Sabzavotlar",w:[["potato","kartoshka"],["tomato","pomidor"],["cucumber","bodring"],["onion","piyoz"],["carrot","sabzi"],["cabbage","karam"],["garlic","sarimsoq"],["pepper","qalampir"],["eggplant","baqlajon"],["pumpkin","qovoq"],["beet","lavlagi"],["radish","turp"],["corn","makkajo'xori"],["bean","loviya"],["pea","no'xat"],["spinach","ismaloq"],["lettuce","salat bargi"],["mushroom","qo'ziqorin"],["vegetable","sabzavot"],["herbs","ko'kat"]]},
+  {t:"Hayvonlar",w:[["dog","it"],["cat","mushuk"],["horse","ot"],["cow","sigir"],["sheep","qo'y"],["goat","echki"],["chicken","tovuq"],["duck","o'rdak"],["bird","qush"],["fish","baliq"],["rabbit","quyon"],["mouse","sichqon"],["lion","sher"],["tiger","yo'lbars"],["elephant","fil"],["bear","ayiq"],["wolf","bo'ri"],["fox","tulki"],["monkey","maymun"],["donkey","eshak"]]},
+  {t:"Uy",w:[["house","uy"],["room","xona"],["kitchen","oshxona"],["bedroom","yotoqxona"],["bathroom","hammom"],["living room","mehmonxona"],["door","eshik"],["window","deraza"],["roof","tom"],["floor","pol"],["wall","devor"],["ceiling","shift"],["stairs","zina"],["garden","bog'"],["yard","hovli"],["garage","garaj"],["balcony","balkon"],["toilet","hojatxona"],["hall","koridor"],["key","kalit"]]},
+  {t:"Xona jihozlari",w:[["table","stol"],["chair","stul"],["bed","krovat"],["sofa","divan"],["lamp","chiroq"],["carpet","gilam"],["mirror","oyna"],["wardrobe","shkaf"],["shelf","javon"],["pillow","yostiq"],["blanket","ko'rpa"],["curtain","parda"],["clock","soat"],["television","televizor"],["refrigerator","muzlatgich"],["telephone","telefon"],["computer","kompyuter"],["desk","yozuv stoli"],["plate","likopcha"],["spoon","qoshiq"]]},
+  {t:"Kiyim",w:[["clothes","kiyim"],["shirt","ko'ylak"],["trousers","shim"],["dress","libos"],["skirt","yubka"],["jacket","kurtka"],["coat","palto"],["hat","shlyapa"],["cap","qalpoq"],["shoes","poyabzal"],["socks","paypoq"],["boots","etik"],["scarf","ro'mol"],["gloves","qo'lqop"],["belt","kamar"],["T-shirt","futbolka"],["sweater","sviter"],["suit","kostyum"],["pajamas","pijama"],["umbrella","soyabon"]]},
+  {t:"Tana a'zolari",w:[["head","bosh"],["face","yuz"],["eye","ko'z"],["ear","quloq"],["nose","burun"],["mouth","og'iz"],["tooth","tish"],["hair","soch"],["neck","bo'yin"],["shoulder","yelka"],["arm","qo'l"],["hand","kaft"],["finger","barmoq"],["leg","oyoq"],["foot","tovon"],["knee","tizza"],["back","orqa"],["stomach","qorin"],["heart","yurak"],["tongue","til"]]},
+  {t:"Maktab",w:[["school","maktab"],["teacher","o'qituvchi"],["student","o'quvchi"],["classroom","sinf xonasi"],["book","kitob"],["notebook","daftar"],["pen","ruchka"],["pencil","qalam"],["eraser","o'chirg'ich"],["ruler","chizg'ich"],["bag","sumka"],["blackboard","doska"],["lesson","dars"],["homework","uy vazifasi"],["exam","imtihon"],["desk","parta"],["dictionary","lug'at"],["map","xarita"],["library","kutubxona"],["break","tanaffus"]]},
+  {t:"Kasblar",w:[["teacher","ustoz"],["doctor","shifokor"],["nurse","hamshira"],["driver","haydovchi"],["cook","oshpaz"],["farmer","dehqon"],["police officer","militsioner"],["engineer","muhandis"],["lawyer","advokat"],["builder","quruvchi"],["seller","sotuvchi"],["singer","qo'shiqchi"],["artist","rassom"],["pilot","uchuvchi"],["soldier","askar"],["worker","ishchi"],["dentist","tish shifokori"],["tailor","tikuvchi"],["journalist","jurnalist"],["waiter","ofitsiant"]]}
+]);
+
+window.WORDS=(window.WORDS||[]).concat([
+  {t:"Transport",w:[["car","mashina"],["bus","avtobus"],["train","poyezd"],["taxi","taksi"],["bicycle","velosiped"],["motorcycle","mototsikl"],["plane","samolyot"],["ship","kema"],["boat","qayiq"],["metro","metro"],["truck","yuk mashinasi"],["road","yo'l"],["street","ko'cha"],["bridge","ko'prik"],["driver","haydovchi"],["station","bekat"],["traffic","tirbandlik"],["petrol","benzin"],["wheel","g'ildirak"],["tram","tramvay"]]},
+  {t:"Shahar",w:[["city","shahar"],["bank","bank"],["park","bog'"],["hospital","kasalxona"],["school","maktab"],["market","bozor"],["library","kutubxona"],["museum","muzey"],["cinema","kinoteatr"],["post office","pochta"],["police station","militsiya bo'limi"],["pharmacy","dorixona"],["mosque","masjid"],["hotel","mehmonxona"],["restaurant","restoran"],["square","maydon"],["theatre","teatr"],["university","universitet"],["factory","zavod"],["fountain","favvora"]]},
+  {t:"Do'kon",w:[["shop","do'kon"],["supermarket","supermarket"],["price","narx"],["money","pul"],["cheap","arzon"],["expensive","qimmat"],["buy","sotib olmoq"],["sell","sotmoq"],["bag","sumka"],["cash","naqd pul"],["card","karta"],["discount","chegirma"],["customer","xaridor"],["seller","sotuvchi"],["receipt","chek"],["basket","savat"],["bakery","novvoyxona"],["clothes","kiyim"],["shoes","poyabzal"],["gift","sovg'a"]]},
+  {t:"Ob-havo",w:[["weather","ob-havo"],["sun","quyosh"],["rain","yomg'ir"],["snow","qor"],["wind","shamol"],["cloud","bulut"],["hot","issiq"],["cold","sovuq"],["warm","iliq"],["cool","salqin"],["storm","bo'ron"],["fog","tuman"],["ice","muz"],["sunny","quyoshli"],["cloudy","bulutli"],["rainy","yomg'irli"],["windy","shamolli"],["temperature","harorat"],["umbrella","soyabon"],["thunder","momaqaldiroq"]]},
+  {t:"Fasllar va oylar",w:[["spring","bahor"],["summer","yoz"],["autumn","kuz"],["winter","qish"],["January","yanvar"],["February","fevral"],["March","mart"],["April","aprel"],["May","may"],["June","iyun"],["July","iyul"],["August","avgust"],["September","sentabr"],["October","oktabr"],["November","noyabr"],["December","dekabr"],["season","fasl"],["month","oy"],["year","yil"],["holiday","bayram"]]},
+  {t:"Hafta kunlari va vaqt",w:[["Monday","dushanba"],["Tuesday","seshanba"],["Wednesday","chorshanba"],["Thursday","payshanba"],["Friday","juma"],["Saturday","shanba"],["Sunday","yakshanba"],["today","bugun"],["tomorrow","ertaga"],["yesterday","kecha"],["hour","soat"],["minute","daqiqa"],["second","soniya"],["morning","ertalab"],["afternoon","tushdan keyin"],["evening","kechqurun"],["night","tun"],["week","hafta"],["day","kun"],["now","hozir"]]},
+  {t:"Kundalik fe'llar",w:[["go","bormoq"],["come","kelmoq"],["eat","yemoq"],["drink","ichmoq"],["sleep","uxlamoq"],["wake up","uyg'onmoq"],["work","ishlamoq"],["study","o'qimoq"],["read","kitob o'qimoq"],["write","yozmoq"],["speak","gapirmoq"],["listen","tinglamoq"],["watch","tomosha qilmoq"],["cook","pishirmoq"],["wash","yuvmoq"],["walk","yurmoq"],["run","yugurmoq"],["sit","o'tirmoq"],["stand","turmoq"],["play","o'ynamoq"]]},
+  {t:"Sifatlar",w:[["big","katta"],["small","kichik"],["good","yaxshi"],["bad","yomon"],["new","yangi"],["old","eski"],["young","yosh"],["beautiful","chiroyli"],["fast","tez"],["slow","sekin"],["easy","oson"],["difficult","qiyin"],["long","uzun"],["short","qisqa"],["high","baland"],["clean","toza"],["dirty","iflos"],["heavy","og'ir"],["light","yengil"],["happy","xursand"]]},
+  {t:"Sport va hobbi",w:[["football","futbol"],["basketball","basketbol"],["tennis","tennis"],["swimming","suzish"],["running","yugurish"],["volleyball","voleybol"],["boxing","boks"],["wrestling","kurash"],["chess","shaxmat"],["music","musiqa"],["dancing","raqs"],["singing","qo'shiq aytish"],["drawing","rasm chizish"],["reading","kitobxonlik"],["cooking","pazandalik"],["fishing","baliq ovlash"],["cycling","velosiped haydash"],["team","jamoa"],["ball","to'p"],["game","o'yin"]]},
+  {t:"Sayohat",w:[["airport","aeroport"],["ticket","chipta"],["passport","pasport"],["visa","viza"],["suitcase","chamadon"],["luggage","yuk"],["flight","parvoz"],["passenger","yo'lovchi"],["tourist","sayyoh"],["map","xarita"],["trip","safar"],["travel","sayohat qilmoq"],["room","xona"],["reservation","bron"],["guide","gid"],["border","chegara"],["customs","bojxona"],["arrival","kelish"],["departure","jo'nash"],["camera","fotoapparat"]]},
+  {t:"Salomatlik",w:[["doctor","shifokor"],["nurse","hamshira"],["medicine","dori"],["pain","og'riq"],["fever","isitma"],["cough","yo'tal"],["cold","shamollash"],["headache","bosh og'rig'i"],["stomach","oshqozon"],["tooth","tish"],["dentist","tish shifokori"],["ambulance","tez yordam"],["patient","bemor"],["sick","kasal"],["healthy","sog'lom"],["tablet","tabletka"],["blood","qon"],["injury","jarohat"],["allergy","allergiya"],["health","salomatlik"]]},
+  {t:"Tabiat",w:[["mountain","tog'"],["river","daryo"],["tree","daraxt"],["flower","gul"],["sun","quyosh"],["moon","oy"],["star","yulduz"],["sky","osmon"],["sea","dengiz"],["lake","ko'l"],["forest","o'rmon"],["grass","o't"],["desert","cho'l"],["field","dala"],["hill","tepalik"],["stone","tosh"],["sand","qum"],["leaf","barg"],["animal","hayvon"],["earth","yer"]]},
+  {t:"Restoran",w:[["menu","menyu"],["waiter","ofitsiant"],["table","stol"],["bill","hisob"],["order","buyurtma qilmoq"],["breakfast","nonushta"],["lunch","tushlik"],["dinner","kechki ovqat"],["soup","sho'rva"],["salad","salat"],["meat","go'sht"],["fish","baliq"],["bread","non"],["tea","choy"],["coffee","qahva"],["water","suv"],["dessert","shirinlik"],["fork","vilka"],["spoon","qoshiq"],["tip","choychaqa"]]},
+  {t:"Texnologiya",w:[["phone","telefon"],["computer","kompyuter"],["internet","internet"],["laptop","noutbuk"],["screen","ekran"],["keyboard","klaviatura"],["mouse","sichqoncha"],["app","ilova"],["website","veb-sayt"],["email","elektron pochta"],["password","parol"],["message","xabar"],["video","video"],["photo","surat"],["camera","kamera"],["battery","batareya"],["charger","zaryadlovchi"],["headphones","quloqchin"],["television","televizor"],["robot","robot"]]},
+  {t:"Hissiyotlar",w:[["happy","baxtli"],["sad","xafa"],["angry","jahldor"],["afraid","qo'rqqan"],["tired","charchagan"],["surprised","hayron"],["excited","hayajonlangan"],["bored","zerikkan"],["worried","tashvishli"],["proud","faxrlangan"],["lonely","yolg'iz"],["nervous","asabiy"],["calm","xotirjam"],["love","sevgi"],["hate","nafrat"],["joy","quvonch"],["fear","qo'rquv"],["smile","tabassum"],["cry","yig'lamoq"],["laugh","kulmoq"]]}
+]);
+
+window.GRAMMAR=(window.GRAMMAR||[]).concat([
+  {t:"to be fe'li (am / is / are)",rule:"Ingliz tilida \"bo'lmoq\" fe'li to be deyiladi. U gapda doim kerak bo'ladi.\nI + am  (Men ...man): I am a student.\nHe / She / It + is  (U ...dir): She is a teacher.\nYou / We / They + are  (Siz / Biz / Ular ...): They are friends.\nQisqa shakllar: I'm, he's, she's, it's, you're, we're, they're.",ex:[["I am a student.","Men talabaman."],["You are my friend.","Siz mening do'stimsiz."],["He is a doctor.","U (erkak) shifokor."],["She is happy.","U (ayol) xursand."],["We are from Uzbekistan.","Biz O'zbekistonlikmiz."],["They are at home.","Ular uyda."]],q:[
+    {q:"I ___ a student.",o:["am","is","are","be"],a:0},
+    {q:"She ___ a teacher.",o:["am","is","are","be"],a:1},
+    {q:"They ___ friends.",o:["is","am","be","are"],a:3},
+    {q:"We ___ from Uzbekistan.",o:["are","is","am","be"],a:0},
+    {q:"He ___ my brother.",o:["are","am","is","be"],a:2},
+    {q:"It ___ a cat.",o:["am","are","be","is"],a:3},
+    {q:"You ___ happy.",o:["are","is","am","be"],a:0},
+    {q:"My mother ___ a doctor.",o:["am","are","is","be"],a:2},
+    {q:"The books ___ on the table.",o:["is","are","am","be"],a:1},
+    {q:"\"I'm\" is short for:",o:["I am","I is","I are","I be"],a:0},
+    {q:"Choose the correct sentence.",o:["I is a boy.","He are a boy.","She am a girl.","He is a boy."],a:3},
+    {q:"Tom and Anna ___ students.",o:["is","am","are","be"],a:2},
+    {q:"The sky ___ blue.",o:["are","am","be","is"],a:3},
+    {q:"Choose the correct sentence.",o:["We is teachers.","We are teachers.","We am teachers.","We be teachers."],a:1},
+    {q:"Ali ___ ten years old.",o:["is","are","am","be"],a:0}
+  ]},
+  {t:"to be: inkor va savol",rule:"Inkor gap uchun to be dan keyin not qo'yiladi: I am not, he is not (isn't), you are not (aren't).\nSavol hosil qilish uchun to be gap boshiga chiqadi: Are you a student? Is she happy?\nQisqa javoblar: Yes, I am. / No, he isn't. / Yes, they are.\nSavol so'zlari (Where, What, Who) gap boshida turadi: Where are you from?",ex:[["I am not a doctor.","Men shifokor emasman."],["She isn't tired.","U (ayol) charchamagan."],["They aren't at home.","Ular uyda emas."],["Are you a student?","Siz talabamisiz?"],["Is he your brother?","U sizning akangizmi?"],["Where are you from?","Siz qayerdansiz?"]],q:[
+    {q:"I ___ not a doctor.",o:["am","is","are","be"],a:0},
+    {q:"She ___ not tired.",o:["am","are","is","be"],a:2},
+    {q:"\"Aren't\" is short for:",o:["are not","is not","am not","do not"],a:0},
+    {q:"___ you a student?",o:["Is","Am","Are","Do"],a:2},
+    {q:"___ he your brother?",o:["Are","Am","Be","Is"],a:3},
+    {q:"Is she a nurse? Yes, she ___.",o:["are","is","am","does"],a:1},
+    {q:"Are you hungry? No, I ___.",o:["aren't","isn't","am not","not am"],a:2},
+    {q:"We ___ late.",o:["isn't","aren't","am not","don't"],a:1},
+    {q:"Choose the correct question.",o:["You are happy?","Are you happy?","Is you happy?","Do you happy?"],a:1},
+    {q:"___ the children at school?",o:["Is","Am","Are","Do"],a:2},
+    {q:"It ___ a dog. It's a cat.",o:["aren't","isn't","am not","don't"],a:1},
+    {q:"Where ___ you from?",o:["is","am","are","do"],a:2},
+    {q:"Is Tom a teacher? No, he ___.",o:["isn't","aren't","am not","don't"],a:0},
+    {q:"Choose the correct sentence.",o:["He not is a doctor.","He isn't a doctor.","He don't a doctor.","He no is a doctor."],a:1},
+    {q:"___ I late?",o:["Is","Are","Am","Do"],a:2}
+  ]},
+  {t:"this / that / these / those",rule:"This (bu) va these (bular) yaqindagi narsalar uchun ishlatiladi.\nThat (u) va those (ular) uzoqdagi narsalar uchun ishlatiladi.\nBitta narsa: this / that. Ko'p narsa: these / those.\nThis is a book. These are books. That is a car. Those are cars.\nThese / those bilan are ishlatiladi, this / that bilan is.",ex:[["This is my book.","Bu mening kitobim."],["That is a bird.","U qush."],["These are my shoes.","Bular mening poyabzallarim."],["Those are mountains.","Anavilar tog'lar."],["What is this?","Bu nima?"],["Are those your friends?","Anavilar sening do'stlaringmi?"]],q:[
+    {q:"___ is my book. (here, one thing)",o:["That","Those","This","These"],a:2},
+    {q:"___ are my shoes. (here, many things)",o:["This","These","That","Those"],a:1},
+    {q:"___ is a bird over there.",o:["This","These","That","Those"],a:2},
+    {q:"___ are mountains over there.",o:["Those","That","This","These"],a:0},
+    {q:"___ apple here is red.",o:["These","Those","That","This"],a:3},
+    {q:"Look at ___ flowers here!",o:["this","that","these","those"],a:2},
+    {q:"___ car over there is new.",o:["This","That","These","Those"],a:1},
+    {q:"What's ___? (You hold a pen.)",o:["these","that","those","this"],a:3},
+    {q:"___ are my friends over there.",o:["This","That","Those","It is"],a:2},
+    {q:"Is ___ Anna over there?",o:["this","that","these","those"],a:1},
+    {q:"Choose the correct sentence.",o:["This are books.","These is a book.","These are books.","That are books."],a:2},
+    {q:"___ men here are teachers.",o:["Those","That","This","These"],a:3},
+    {q:"Is ___ your bag here?",o:["these","this","those","that"],a:1},
+    {q:"___ children over there are playing.",o:["That","This","Those","Here"],a:2},
+    {q:"Choose the correct sentence.",o:["That is my teacher over there.","Those is my teacher.","These is my teacher.","That are my teacher."],a:0}
+  ]},
+  {t:"Artikllar: a / an / the",rule:"A va an \"bir\" ma'nosida, birinchi marta aytilgan sanaladigan narsa oldidan keladi.\nA undosh tovush bilan boshlanadigan so'z oldida: a book, a dog.\nAn unli tovush bilan boshlanadigan so'z oldida: an apple, an egg, an hour.\nThe aniq, ma'lum narsa oldida: The sun is hot. I have a cat. The cat is black.\nKo'plik oldida a / an ishlatilmaydi.",ex:[["I have an apple.","Menda bitta olma bor."],["She is a teacher.","U (ayol) o'qituvchi."],["He is an engineer.","U (erkak) muhandis."],["I see a cat. The cat is black.","Men mushukni ko'ryapman. Mushuk qora."],["The sun is hot.","Quyosh issiq."],["It is an orange.","Bu apelsin."]],q:[
+    {q:"I have ___ apple.",o:["a","an","two","many"],a:1},
+    {q:"She is ___ teacher.",o:["an","some","a","any"],a:2},
+    {q:"He has ___ umbrella.",o:["a","an","two","many"],a:1},
+    {q:"___ sun is hot.",o:["A","An","The","Two"],a:2},
+    {q:"This is ___ egg.",o:["a","two","many","an"],a:3},
+    {q:"I see a cat. ___ cat is black.",o:["A","An","The","Two"],a:2},
+    {q:"She is ___ engineer.",o:["a","an","two","much"],a:1},
+    {q:"My father is ___ doctor.",o:["an","a","two","many"],a:1},
+    {q:"It is ___ orange.",o:["a","two","an","many"],a:2},
+    {q:"___ moon is far from Earth.",o:["An","A","Two","The"],a:3},
+    {q:"He is ___ university student.",o:["an","a","two","any"],a:1},
+    {q:"She waits for ___ hour.",o:["a","an","two","some"],a:1},
+    {q:"Choose the correct sentence.",o:["I have a ice cream.","I have an ice cream.","I have an cat.","I have a apple."],a:1},
+    {q:"Choose the correct sentence.",o:["He is a honest man.","She is an doctor.","He is an honest man.","It is an dog."],a:2},
+    {q:"Choose the correct sentence.",o:["A sun is bright.","The sun is bright.","An sun is bright.","Sun the is bright."],a:1}
+  ]},
+  {t:"Ko'plik shakli (plural nouns)",rule:"Ko'pchilik otlarga -s qo'shiladi: book - books.\n-s, -x, -ch, -sh bilan tugasa -es: box - boxes, watch - watches, bus - buses.\nUndosh + y bilan tugasa y o'rniga -ies: baby - babies, city - cities.\n-f / -fe bilan tugasa ko'pincha -ves: knife - knives.\nNoto'g'ri shakllar: man - men, woman - women, child - children, foot - feet, tooth - teeth, person - people.",ex:[["I have two books.","Menda ikkita kitob bor."],["There are three boxes.","Uchta quti bor."],["Two babies are sleeping.","Ikkita chaqaloq uxlayapti."],["The men are here.","Erkaklar shu yerda."],["Four children play.","To'rtta bola o'ynayapti."],["My feet are cold.","Oyoqlarim sovuq."]],q:[
+    {q:"one book, two ___",o:["book","books","bookes","bookies"],a:1},
+    {q:"one box, three ___",o:["boxs","boxes","boxies","box"],a:1},
+    {q:"one baby, two ___",o:["babys","babies","babyes","baby"],a:1},
+    {q:"one man, two ___",o:["mans","manes","men","mens"],a:2},
+    {q:"one woman, three ___",o:["womans","women","womens","womanes"],a:1},
+    {q:"one child, four ___",o:["childs","childes","childrens","children"],a:3},
+    {q:"one bus, two ___",o:["buss","busies","buses","busen"],a:2},
+    {q:"one foot, two ___",o:["foots","feet","feets","feeten"],a:1},
+    {q:"one knife, two ___",o:["knifes","knifees","knive","knives"],a:3},
+    {q:"one city, five ___",o:["citys","cities","cityes","citis"],a:1},
+    {q:"one tooth, many ___",o:["tooths","toothes","teeth","teeths"],a:2},
+    {q:"Choose the correct sentence.",o:["I have two sisteres.","I have two sister.","I have two sisters.","I have two sistis."],a:2},
+    {q:"Choose the correct sentence.",o:["Three childs are here.","Three children are here.","Three child are here.","Three childrens are here."],a:1},
+    {q:"one watch, two ___",o:["watchs","watchies","watches","watchen"],a:2},
+    {q:"Two ___ are at the door.",o:["peoples","people","persones","personn"],a:1}
+  ]},
+  {t:"Ega olmoshlari (I, you, he...)",rule:"Ega olmoshlari gapda ish-harakatni bajaruvchini bildiradi.\nI (men), you (sen / siz), he (u - erkak), she (u - ayol), it (u - narsa / hayvon), we (biz), they (ular).\nOdamni nomi o'rniga ishlatamiz: Anna - she, Tom - he. Narsa va hayvon uchun it, ko'plik uchun they.\nI har doim bosh harf bilan yoziladi.",ex:[["I am a student.","Men talabaman."],["You are my friend.","Sen mening do'stimsan."],["He is tall.","U (erkak) baland bo'yli."],["She is a nurse.","U (ayol) hamshira."],["It is small.","U (mushuk / narsa) kichik."],["They are teachers.","Ular o'qituvchilar."]],q:[
+    {q:"Anna is my sister. ___ is a nurse.",o:["He","It","She","They"],a:2},
+    {q:"Tom is my friend. ___ is tall.",o:["She","He","It","We"],a:1},
+    {q:"My parents are kind. ___ are teachers.",o:["We","He","They","It"],a:2},
+    {q:"The cat is small. ___ is cute.",o:["It","He","She","They"],a:0},
+    {q:"Ali and I are friends. ___ are students.",o:["They","You","We","He"],a:2},
+    {q:"Ali, ___ are my best friend.",o:["I","he","you","it"],a:2},
+    {q:"Sara and Tom are at home. ___ are happy.",o:["He","She","It","They"],a:3},
+    {q:"___ am a student.",o:["He","I","You","We"],a:1},
+    {q:"The book is new. ___ is red.",o:["She","It","He","They"],a:1},
+    {q:"Maria lives here. ___ is my aunt.",o:["He","It","She","They"],a:2},
+    {q:"The boys are in the park. ___ play football.",o:["He","We","They","It"],a:2},
+    {q:"My mother and I are at home. ___ are happy.",o:["They","You","We","She"],a:2},
+    {q:"Choose the correct sentence.",o:["Me am a student.","I am a student.","Him is a student.","Them are students."],a:1},
+    {q:"Choose the correct sentence.",o:["Her is a doctor.","Him is a doctor.","She is a doctor.","Hers is a doctor."],a:2},
+    {q:"You talk to many people: \"___ are my students.\"",o:["I","You","He","It"],a:1}
+  ]},
+  {t:"Egalik sifatlari (my, your...)",rule:"Egalik sifatlari narsa kimniki ekanini bildiradi va otdan oldin keladi.\nI - my (mening), you - your (sening / sizning), he - his (uning, erkak), she - her (uning, ayol), it - its (uning), we - our (bizning), they - their (ularning).\nMasalan: my book, her mother, their house.\nEgalik sifatidan keyin a / an / the qo'yilmaydi: my book (a my book emas).",ex:[["This is my bag.","Bu mening sumkam."],["Your name is Ali.","Sening isming Ali."],["His car is red.","Uning mashinasi qizil."],["Her mother is a doctor.","Uning onasi shifokor."],["Our house is big.","Bizning uyimiz katta."],["Their children are happy.","Ularning bolalari xursand."]],q:[
+    {q:"I have a dog. ___ dog is big.",o:["My","I","Me","Mine"],a:0},
+    {q:"You have a bag. ___ bag is nice.",o:["Her","You","Your","Yours"],a:2},
+    {q:"He has a car. ___ car is red.",o:["Her","His","Him","He"],a:1},
+    {q:"She has a son. ___ son is tall.",o:["His","She","Hers","Her"],a:3},
+    {q:"We have a house. ___ house is big.",o:["Our","We","Us","Ours"],a:0},
+    {q:"They have a cat. ___ cat is black.",o:["They","Them","Their","There"],a:2},
+    {q:"The dog likes ___ bone.",o:["it","it's","its","it is"],a:2},
+    {q:"Anna loves ___ mother.",o:["she","her","hers","his"],a:1},
+    {q:"Tom and I like ___ teacher.",o:["we","us","our","ours"],a:2},
+    {q:"Choose the correct sentence.",o:["I like you bag.","I like yours bag.","I like you're bag.","I like your bag."],a:3},
+    {q:"Tom loves ___ wife.",o:["her","he","his","him"],a:2},
+    {q:"What is ___ name? (to a friend)",o:["you","your","yours","you're"],a:1},
+    {q:"This is Sara. This is ___ book.",o:["she","he","her","hers"],a:2},
+    {q:"They love ___ children.",o:["there","their","they","them"],a:1},
+    {q:"I wash ___ hands every day.",o:["me","my","mine","I"],a:1}
+  ]},
+  {t:"have got / has got (bor)",rule:"Have got / has got \"bor\" degan ma'noni beradi (mulk, oila, tashqi ko'rinish).\nI / you / we / they + have got: I have got a bike.\nHe / she / it + has got: She has got a brother.\nInkor: haven't got / hasn't got. Savol: Have you got ...? Has he got ...?\nJavob: Yes, I have. / No, she hasn't.",ex:[["I have got a bike.","Menda velosiped bor."],["She has got a brother.","Uning (ayolning) akasi / ukasi bor."],["They have got a big house.","Ularning katta uyi bor."],["It has got four legs.","Uning to'rtta oyog'i bor."],["I haven't got a car.","Menda mashina yo'q."],["Has he got a pen?","Uning ruchkasi bormi?"]],q:[
+    {q:"I ___ got a bike.",o:["has","have","am","is"],a:1},
+    {q:"She ___ got a brother.",o:["have","has","is","does"],a:1},
+    {q:"They ___ got a big house.",o:["has","have","are","is"],a:1},
+    {q:"He ___ got two sisters.",o:["have","has","haves","is"],a:1},
+    {q:"We ___ got a dog.",o:["has","is","have","are"],a:2},
+    {q:"It ___ got four legs.",o:["have","has","is","are"],a:1},
+    {q:"I ___ got a car. (negative)",o:["haven't","hasn't","don't","am not"],a:0},
+    {q:"She ___ got a phone. (negative)",o:["haven't","hasn't","isn't","doesn't"],a:1},
+    {q:"___ you got a pen?",o:["Has","Have","Do","Are"],a:1},
+    {q:"___ he got a bike?",o:["Have","Is","Has","Does"],a:2},
+    {q:"Have you got a sister? Yes, I ___.",o:["have","has","do","am"],a:0},
+    {q:"Has she got a car? No, she ___.",o:["haven't","hasn't","doesn't","isn't"],a:1},
+    {q:"Choose the correct sentence.",o:["He have got a cat.","He has got a cat.","He is got a cat.","He haves got a cat."],a:1},
+    {q:"___ they got children?",o:["Has","Is","Have","Do"],a:2},
+    {q:"Ali and Vali ___ got new bikes.",o:["has","have","is","haves"],a:1}
+  ]},
+  {t:"there is / there are (bor, mavjud)",rule:"There is / there are biror narsa qayerdadir borligini aytadi.\nBitta narsa: There is a book on the desk.\nKo'p narsa: There are three chairs.\nSanalmaydigan otlar bilan ham is: There is some water.\nInkor: There isn't / There aren't. Savol: Is there ...? Are there ...?\nJavob: Yes, there is. / No, there aren't.",ex:[["There is a book on the desk.","Stol ustida bitta kitob bor."],["There are three chairs.","Uchta stul bor."],["There isn't a bank here.","Bu yerda bank yo'q."],["There aren't any students.","Hech qanday talaba yo'q."],["Is there a park near here?","Yaqin atrofda bog' bormi?"],["Are there any apples?","Olmalar bormi?"]],q:[
+    {q:"There ___ a book on the desk.",o:["are","am","is","be"],a:2},
+    {q:"There ___ three chairs.",o:["is","are","am","be"],a:1},
+    {q:"There ___ two cats in the garden.",o:["is","am","be","are"],a:3},
+    {q:"There ___ a window in the room.",o:["is","are","am","be"],a:0},
+    {q:"___ there a bank near here?",o:["Are","Do","Has","Is"],a:3},
+    {q:"___ there any apples?",o:["Is","Do","Are","Has"],a:2},
+    {q:"There ___ a car here. (negative)",o:["aren't","isn't","don't","haven't"],a:1},
+    {q:"There ___ any students. (negative)",o:["isn't","aren't","doesn't","haven't"],a:1},
+    {q:"Is there a park? Yes, there ___.",o:["are","is","has","does"],a:1},
+    {q:"Are there books? No, there ___.",o:["isn't","aren't","don't","haven't"],a:1},
+    {q:"There ___ some water in the glass.",o:["are","have","be","is"],a:3},
+    {q:"Choose the correct sentence.",o:["There is five pens.","There are five pens.","It is five pens.","There have five pens."],a:1},
+    {q:"There ___ many people in the park.",o:["is","am","are","be"],a:2},
+    {q:"Choose the correct sentence.",o:["There are a cat.","There is a cat.","There have a cat.","Have a cat there."],a:1},
+    {q:"How many students ___ there in the class?",o:["is","are","do","have"],a:1}
+  ]},
+  {t:"Present Simple (hozirgi oddiy zamon)",rule:"Present Simple odat, doimiy ish-harakat va haqiqatlar uchun ishlatiladi: Men har kuni ingliz tilini o'rganaman.\nI / you / we / they + fe'l: I study, they go.\nHe / she / it + fe'l + s: She works, he plays.\n-s, -sh, -ch, -x, -o bilan tugasa -es: watch - watches, go - goes, do - does.\nUndosh + y bilan tugasa -ies: study - studies, cry - cries.\nhave - has (maxsus shakl).",ex:[["I study English every day.","Men har kuni ingliz tilini o'rganaman."],["She works in a bank.","U (ayol) bankda ishlaydi."],["He plays football.","U (erkak) futbol o'ynaydi."],["They go to school.","Ular maktabga boradi."],["My mother watches TV.","Onam televizor ko'radi."],["The baby cries a lot.","Chaqaloq ko'p yig'laydi."]],q:[
+    {q:"I ___ English every day.",o:["studies","study","studying","studys"],a:1},
+    {q:"She ___ in a bank.",o:["work","working","works","workes"],a:2},
+    {q:"He ___ football.",o:["play","plays","playing","playes"],a:1},
+    {q:"They ___ to school.",o:["goes","going","go","gos"],a:2},
+    {q:"My mother ___ breakfast.",o:["cook","cookes","cooks","cooking"],a:2},
+    {q:"The baby ___ a lot. (cry)",o:["cries","crys","cry","criees"],a:0},
+    {q:"She ___ TV. (watch)",o:["watchs","watchies","watches","watch"],a:2},
+    {q:"He ___ his homework. (do)",o:["do","does","doies","dos"],a:1},
+    {q:"Tom ___ English. (teach)",o:["teach","teachs","teaches","teaching"],a:2},
+    {q:"We ___ tea in the morning.",o:["drinks","drink","drinking","drinkes"],a:1},
+    {q:"She ___ a car. (have)",o:["have","haves","has","having"],a:2},
+    {q:"The bus ___ at eight. (arrive)",o:["arrive","arrives","arriveing","arrivees"],a:1},
+    {q:"Choose the correct sentence.",o:["He go to work.","He goes to work.","He gos to work.","He going to work."],a:1},
+    {q:"Choose the correct sentence.",o:["Birds fly.","Birds flies.","Birds flys.","Birds flyes."],a:0},
+    {q:"Choose the correct sentence.",o:["My dog like milk.","My dog likes milk.","My dog likeses milk.","My dog liking milk."],a:1}
+  ]},
+  {t:"Present Simple inkor (don't / doesn't)",rule:"Present Simple da inkor gap don't / doesn't bilan tuziladi.\nI / you / we / they + don't + fe'l: I don't like tea.\nHe / she / it + doesn't + fe'l: She doesn't like coffee.\nDiqqat: doesn't dan keyin fe'lga -s qo'shilmaydi: He doesn't work (works emas).\nDon't = do not, doesn't = does not.",ex:[["I don't like tea.","Men choyni yoqtirmayman."],["She doesn't like coffee.","U (ayol) qahvani yoqtirmaydi."],["They don't live here.","Ular bu yerda yashamaydi."],["He doesn't eat meat.","U (erkak) go'sht yemaydi."],["We don't watch TV.","Biz televizor ko'rmaymiz."],["It doesn't rain here in summer.","Bu yerda yozda yomg'ir yog'maydi."]],q:[
+    {q:"I ___ like tea.",o:["doesn't","don't","not","isn't"],a:1},
+    {q:"She ___ like coffee.",o:["don't","doesn't","isn't","not"],a:1},
+    {q:"They ___ live here.",o:["doesn't","isn't","not","don't"],a:3},
+    {q:"He doesn't ___ meat.",o:["eats","eat","eating","ate"],a:1},
+    {q:"We ___ watch TV.",o:["don't","doesn't","isn't","not"],a:0},
+    {q:"My brother ___ play tennis.",o:["don't","isn't","doesn't","not"],a:2},
+    {q:"It ___ rain here in summer.",o:["don't","doesn't","isn't","not"],a:1},
+    {q:"You ___ speak French.",o:["doesn't","isn't","not","don't"],a:3},
+    {q:"She doesn't ___ English.",o:["speaks","speak","speaking","to speak"],a:1},
+    {q:"Choose the correct sentence.",o:["He don't work.","He doesn't works.","He doesn't work.","He not work."],a:2},
+    {q:"Choose the correct sentence.",o:["I doesn't know.","I don't know.","I not know.","I no know."],a:1},
+    {q:"\"Doesn't\" is short for:",o:["do not","does not","is not","did not"],a:1},
+    {q:"Ali and Vali ___ drink milk.",o:["doesn't","aren't","don't","isn't"],a:2},
+    {q:"The shop ___ close at five.",o:["don't","doesn't","isn't","not"],a:1},
+    {q:"We don't ___ to school on Sunday.",o:["goes","going","go","went"],a:2}
+  ]},
+  {t:"Present Simple savollar (do / does)",rule:"Present Simple da savol Do yoki Does bilan boshlanadi.\nDo + I / you / we / they + fe'l? Do you like pizza?\nDoes + he / she / it + fe'l? Does she work here?\nDoes dan keyin fe'l oddiy shaklda turadi: Does he play? (plays emas).\nQisqa javoblar: Yes, I do. / No, she doesn't.\nSavol so'zlari oldinda: Where do you live? What time does the lesson start?",ex:[["Do you like pizza?","Sen pitsani yoqtirasanmi?"],["Does she work here?","U (ayol) bu yerda ishlaydimi?"],["Do they speak English?","Ular inglizcha gapiradimi?"],["Does he play football?","U (erkak) futbol o'ynaydimi?"],["Where do you live?","Siz qayerda yashaysiz?"],["What time does the lesson start?","Dars soat nechada boshlanadi?"]],q:[
+    {q:"___ you like pizza?",o:["Does","Do","Are","Is"],a:1},
+    {q:"___ she work here?",o:["Do","Is","Does","Are"],a:2},
+    {q:"___ they speak English?",o:["Does","Is","Are","Do"],a:3},
+    {q:"___ he play football?",o:["Does","Do","Is","Are"],a:0},
+    {q:"Does she ___ tea?",o:["drinks","drinking","drink","drank"],a:2},
+    {q:"Do you like it? Yes, I ___.",o:["does","do","like","am"],a:1},
+    {q:"Does he live here? No, he ___.",o:["don't","isn't","not","doesn't"],a:3},
+    {q:"Do they work? No, they ___.",o:["don't","doesn't","aren't","not"],a:0},
+    {q:"Where ___ you live?",o:["does","do","are","is"],a:1},
+    {q:"What time ___ the lesson start?",o:["do","is","does","are"],a:2},
+    {q:"Choose the correct question.",o:["Do he like fish?","Does he likes fish?","Does he like fish?","He does like fish?"],a:2},
+    {q:"Choose the correct question.",o:["Does your parents work?","Are your parents work?","Is your parents work?","Do your parents work?"],a:3},
+    {q:"___ your sister speak Uzbek?",o:["Do","Does","Is","Are"],a:1},
+    {q:"What ___ you do?",o:["does","are","do","is"],a:2},
+    {q:"Does it rain a lot? Yes, it ___.",o:["do","is","rains","does"],a:3}
+  ]},
+  {t:"Chastota ravishlari (always, usually...)",rule:"Chastota ravishlari ish-harakat qanchalik tez-tez bo'lishini bildiradi.\nalways (doim, 100%), usually (odatda), often (tez-tez), sometimes (ba'zan), rarely (kamdan-kam), never (hech qachon, 0%).\nOdatiy fe'ldan oldin turadi: I always drink tea.\nTo be fe'lidan keyin turadi: She is never late.\nSavol: How often do you swim?",ex:[["I always drink tea in the morning.","Men ertalab doim choy ichaman."],["She usually goes to school by bus.","U (ayol) odatda maktabga avtobusda boradi."],["We often play football.","Biz tez-tez futbol o'ynaymiz."],["He sometimes watches TV.","U (erkak) ba'zan televizor ko'radi."],["They rarely visit us.","Ular kamdan-kam bizning oldimizga keladi."],["I am never late.","Men hech qachon kechikmayman."]],q:[
+    {q:"I ___ drink tea in the morning. (every day, 100%)",o:["never","always","sometimes","rarely"],a:1},
+    {q:"\"Never\" means:",o:["every time","0% (not at all)","50%","often"],a:1},
+    {q:"Choose the correct sentence.",o:["I always am happy.","I am always happy.","I am happy always the time.","Always am I happy."],a:1},
+    {q:"She ___ eats meat. She is vegetarian.",o:["always","usually","often","never"],a:3},
+    {q:"Choose the correct sentence.",o:["She goes usually to school.","Usually she go to school.","She usually goes to school.","She goes to usually school."],a:2},
+    {q:"Choose the correct sentence.",o:["He never is late.","He is never late.","Never he is late.","He is late never."],a:1},
+    {q:"I ___ get up at six. Every day, the same time.",o:["sometimes","never","always","rarely"],a:2},
+    {q:"Which word means 100%?",o:["never","sometimes","always","rarely"],a:2},
+    {q:"Which word means 0%?",o:["always","usually","often","never"],a:3},
+    {q:"Choose the correct sentence.",o:["We play often football.","We often play football.","We play football often the.","Often we plays football."],a:1},
+    {q:"They ___ visit us. Only once a year.",o:["always","usually","rarely","every day"],a:2},
+    {q:"How ___ do you swim?",o:["old","many","often","long"],a:2},
+    {q:"Choose the correct sentence.",o:["Tom usually is tired.","Tom is usually tired.","Tom is tired usually the.","Usually Tom tired is."],a:1},
+    {q:"Choose the correct sentence.",o:["I don't never eat fish.","I eat never fish.","I never eat fish.","I never eats fish."],a:2},
+    {q:"Which word is the most frequent?",o:["rarely","sometimes","usually","never"],a:2}
+  ]},
+  {t:"can / can't (qila olmoq)",rule:"Can biror ishni qila olish, qobiliyat yoki ruxsat so'rashni bildiradi.\nBarcha shaxslar uchun bir xil: I can, he can, they can (can ga -s qo'shilmaydi).\nCan dan keyin fe'l oddiy shaklda keladi, to ishlatilmaydi: She can swim.\nInkor: can't (cannot). Savol: Can you swim?\nJavob: Yes, I can. / No, I can't.",ex:[["I can swim.","Men suza olaman."],["She can speak English.","U (ayol) inglizcha gapira oladi."],["He can't drive.","U (erkak) mashina hayday olmaydi."],["Can you play the piano?","Siz pianino chala olasizmi?"],["Birds can fly.","Qushlar ucha oladi."],["Can I open the window?","Derazani ochsam bo'ladimi?"]],q:[
+    {q:"I ___ swim.",o:["cans","can","am can","do can"],a:1},
+    {q:"She ___ speak English.",o:["can","cans","is can","does can"],a:0},
+    {q:"He ___ drive. (negative)",o:["don't can","not can","can't","doesn't can"],a:2},
+    {q:"___ you play the piano?",o:["Do","Are","Can","Does"],a:2},
+    {q:"Can he swim? Yes, he ___.",o:["cans","does","is","can"],a:3},
+    {q:"Can they dance? No, they ___.",o:["don't","can't","aren't","not"],a:1},
+    {q:"Birds can ___.",o:["flies","flying","fly","to fly"],a:2},
+    {q:"She can ___ the guitar.",o:["plays","playing","played","play"],a:3},
+    {q:"Choose the correct sentence.",o:["He cans run.","He can runs.","He can run.","He can to run."],a:2},
+    {q:"\"I can't swim\" means:",o:["I am able to swim.","I am not able to swim.","I want to swim.","I have to swim."],a:1},
+    {q:"A fish ___ walk.",o:["can","can't","is","does"],a:1},
+    {q:"___ I open the window? (permission)",o:["Do","Am","Can","Must"],a:2},
+    {q:"Choose the correct question.",o:["Can she cooks?","Does she can cook?","She can cooks?","Can she cook?"],a:3},
+    {q:"Babies ___ read.",o:["can't","can","are","do"],a:0},
+    {q:"___ you help me, please?",o:["Do","Are","Can","Is"],a:2}
+  ]},
+  {t:"Buyruq gaplar (Open the door!)",rule:"Buyruq gap buyruq, iltimos yoki maslahat berish uchun ishlatiladi.\nOlmosh ishlatilmaydi, fe'lning oddiy shakli gap boshiga qo'yiladi: Open the door! Sit down!\nInkor buyruq Don't + fe'l: Don't run! Don't talk!\nMuloyim bo'lish uchun please qo'shing: Please close the window.\nBe fe'li bilan: Be quiet! Don't be late!",ex:[["Open the door, please.","Iltimos, eshikni oching."],["Sit down.","O'tiring."],["Don't run in class!","Sinfda yugurmang!"],["Be quiet!","Jim bo'ling!"],["Don't touch it! It's hot.","Unga tegmang! U issiq."],["Wash your hands before dinner.","Kechki ovqatdan oldin qo'lingizni yuving."]],q:[
+    {q:"___ the door, please.",o:["Opens","Open","Opening","To open"],a:1},
+    {q:"___ run in class!",o:["Not","Doesn't","Don't","No"],a:2},
+    {q:"___ quiet!",o:["Are","Be","Is","Do"],a:1},
+    {q:"Choose the correct sentence.",o:["Sits down.","Sitting down.","You sits down.","Sit down."],a:3},
+    {q:"Choose the correct sentence.",o:["Not talk.","Doesn't talk.","Don't talk.","Don't talks."],a:2},
+    {q:"___ me your pen, please.",o:["Gives","Giving","To give","Give"],a:3},
+    {q:"___ late!",o:["Not be","Don't be","Doesn't be","Aren't"],a:1},
+    {q:"___ up! It's seven o'clock.",o:["Wake","Wakes","Waking","Woke"],a:0},
+    {q:"Choose the correct sentence.",o:["Please closes the window.","Please closing window.","Please to close the window.","Please close the window."],a:3},
+    {q:"Which one is a command?",o:["He opens the door.","Open the door!","She opens the door.","Is the door open?"],a:1},
+    {q:"___ touch it! It's hot.",o:["Doesn't","Not","Don't","No"],a:2},
+    {q:"___ here, please.",o:["Comes","Come","Coming","Came"],a:1},
+    {q:"Don't ___ afraid!",o:["are","is","be","to be"],a:2},
+    {q:"Choose the correct sentence.",o:["Not open the window!","Doesn't open the window!","No open the window!","Don't open the window!"],a:3},
+    {q:"___ your hands before dinner.",o:["Washing","Washes","Wash","To wash"],a:2}
+  ]}
+]);
+
+window.GRAMMAR=(window.GRAMMAR||[]).concat([
+{t:"Joy predloglari (in, on, under...)",rule:"Predloglar narsa qayerda turganini bildiradi.\nin = ichida (in the box), on = ustida (on the table), under = ostida (under the chair).\nnext to = yonida, between = o'rtasida (ikki narsa orasida), behind = orqasida, in front of = oldida.\nShahar va mamlakat oldidan in ishlatiladi: in Tashkent. Aniq nuqta oldidan at ishlatiladi: at the bus stop.\nFormula: Subject + is/are + predlog + joy.",ex:[["The book is on the table.","Kitob stol ustida."],["The cat is under the chair.","Mushuk stul ostida."],["My phone is in my bag.","Telefonim sumkamda."],["The bank is next to the school.","Bank maktab yonida."],["The shop is between the bank and the park.","Do'kon bank bilan park o'rtasida."],["The car is in front of the house.","Mashina uyning oldida."]],q:[
+{q:"The lamp is on top of the table. The lamp is ___ the table.",o:["in","on","under","behind"],a:1},
+{q:"The ball is under the chair. The ball is ___ the chair.",o:["on","next to","under","in"],a:2},
+{q:"My phone is inside my bag. It is ___ my bag.",o:["in","on","between","behind"],a:0},
+{q:"The bank is ___ the school and the shop.",o:["under","between","on","at"],a:1},
+{q:"The garden is at the back of the house. It is ___ the house.",o:["in front of","behind","between","on"],a:1},
+{q:"The car is ___ the house. I can see it at the front.",o:["behind","under","in front of","in"],a:2},
+{q:"She lives ___ Tashkent.",o:["on","at","under","in"],a:3},
+{q:"Anna sits ___ Tom. They sit side by side.",o:["next to","between","in","under"],a:0},
+{q:"The picture is ___ the wall.",o:["in","at","on","under"],a:2},
+{q:"I am ___ the bus stop.",o:["in","at","on","under"],a:1},
+{q:"The fish is swimming ___ the water.",o:["on","behind","in","between"],a:2},
+{q:"Choose the correct sentence.",o:["The cat is on the sofa.","The cat is in the sofa under.","The cat on is the sofa.","The cat is sofa on the."],a:0},
+{q:"Choose the correct sentence.",o:["The keys are at the box.","The keys are in the box.","The keys are on in box.","The keys in are the box."],a:1},
+{q:"The shop is next ___ the bank.",o:["at","to","in","on"],a:1},
+{q:"There is a mirror ___ the bathroom.",o:["on","at","in","behind"],a:2}
+]},
+{t:"Vaqt predloglari (in, on, at)",rule:"Vaqt uchun uchta predlog bor: in, on, at.\nat = aniq soat va ba'zi vaqtlar oldidan: at 7 o'clock, at noon, at night.\non = kunlar va sanalar oldidan: on Monday, on 5 June, on Sunday morning.\nin = oy, fasl, yil va kun qismlari oldidan: in May, in summer, in 2010, in the morning.\nEslab qoling: at night, lekin in the morning / in the evening.",ex:[["I wake up at 7 o'clock.","Men soat 7 da uyg'onaman."],["My birthday is in May.","Mening tug'ilgan kunim may oyida."],["We have a lesson on Monday.","Bizda dushanba kuni dars bor."],["She was born in 2010.","U 2010-yilda tug'ilgan."],["It is cold in winter.","Qishda sovuq bo'ladi."],["The shop closes at 6 pm.","Do'kon kechki soat 6 da yopiladi."]],q:[
+{q:"My birthday is ___ May.",o:["on","in","at","from"],a:1},
+{q:"The class starts ___ 9:00.",o:["at","in","on","to"],a:0},
+{q:"We have a party ___ Saturday.",o:["in","at","on","of"],a:2},
+{q:"I go to school ___ the morning.",o:["on","at","to","in"],a:3},
+{q:"She sleeps ___ night.",o:["at","in","on","by"],a:0},
+{q:"He was born ___ 2010.",o:["at","on","in","of"],a:2},
+{q:"We play football ___ Monday.",o:["in","on","at","by"],a:1},
+{q:"It is cold ___ winter.",o:["on","at","to","in"],a:3},
+{q:"I have lunch ___ noon.",o:["in","on","at","by"],a:2},
+{q:"My exam is ___ 5 June.",o:["on","in","at","to"],a:0},
+{q:"We go to the park ___ Sunday morning.",o:["in","at","to","on"],a:3},
+{q:"The shop closes ___ 6 pm.",o:["on","at","in","of"],a:1},
+{q:"Choose the correct sentence.",o:["I get up in 6:30.","I get up at 6:30.","I get up on 6:30.","I get up to 6:30."],a:1},
+{q:"We go to Samarkand ___ summer.",o:["in","at","on","to"],a:0},
+{q:"Choose the correct sentence.",o:["The film is in Friday.","The film is at Friday.","The film is on Friday.","The film is to Friday."],a:2}
+]},
+{t:"Present Continuous (hozir bo'layotgan ish)",rule:"Present Continuous hozir, aynan shu payt bo'layotgan ishni bildiradi.\nFormula: am / is / are + fe'l + -ing.\nI am reading. She is reading. They are reading.\nInkor: I am not reading. She isn't reading. Savol: Is she reading? Are you reading?\n-ing qo'shishda: run - running, swim - swimming, write - writing. Belgi so'zlar: now, at the moment, Look!, Listen!",ex:[["I am reading a book now.","Men hozir kitob o'qiyapman."],["She is cooking dinner.","U kechki ovqat tayyorlayapti."],["They are playing football.","Ular futbol o'ynayapti."],["He isn't sleeping.","U uxlayotgani yo'q."],["Are you listening to me?","Meni eshityapsanmi?"],["What is he doing?","U nima qilyapti?"]],q:[
+{q:"She ___ a book now.",o:["read","is reading","reads","are reading"],a:1},
+{q:"They ___ football at the moment.",o:["is playing","plays","are playing","playing is"],a:2},
+{q:"I ___ English now.",o:["am studying","is studying","are studying","study"],a:0},
+{q:"He ___ TV now.",o:["are watching","watches","watching","is watching"],a:3},
+{q:"Look! It ___.",o:["rains","is raining","rain","are raining"],a:1},
+{q:"We ___ lunch right now.",o:["is eating","eats","are eating","eating are"],a:2},
+{q:"She is ___ a letter.",o:["write","writes","writing","writeing"],a:2},
+{q:"They ___ not sleeping.",o:["is","am","are","do"],a:2},
+{q:"___ you listening to me?",o:["Is","Are","Do","Am"],a:1},
+{q:"The children are ___ in the pool.",o:["swiming","swimming","swim","swims"],a:1},
+{q:"I ___ working today. I'm on holiday.",o:["am not","is not","do not","not"],a:0},
+{q:"What ___ he doing?",o:["are","do","is","am"],a:2},
+{q:"Choose the correct sentence.",o:["She is cook dinner.","She cooking dinner.","She is cooking dinner.","She cooks is dinner."],a:2},
+{q:"My mother ___ in the kitchen now.",o:["is cooking","cooks","cook","are cooking"],a:0},
+{q:"Is he sleeping? Yes, he ___.",o:["does","is","are","sleeps"],a:1}
+]},
+{t:"Present Simple va Present Continuous",rule:"Present Simple odat, doimiy ish va haqiqatni bildiradi: I go to school every day. She works at a bank.\nPresent Continuous hozir bo'layotgan ishni bildiradi: I am going to school now.\nSimple belgi so'zlari: every day, usually, often, always, on Sundays.\nContinuous belgi so'zlari: now, at the moment, Look!, Listen!\nSimple: do/does bilan so'raymiz. Continuous: am/is/are bilan so'raymiz.",ex:[["I go to school every day.","Men har kuni maktabga boraman."],["I am going to school now.","Men hozir maktabga ketyapman."],["She usually drinks tea.","U odatda choy ichadi."],["Look! The baby is sleeping.","Qara! Chaqaloq uxlayapti."],["We play football on Sundays.","Biz yakshanba kunlari futbol o'ynaymiz."],["What are you doing now?","Hozir nima qilyapsan?"]],q:[
+{q:"I ___ to school every day.",o:["am going","go","is going","goes"],a:1},
+{q:"Look! The baby ___.",o:["sleeps","sleep","is sleeping","sleeping"],a:2},
+{q:"She usually ___ tea in the morning.",o:["drinks","is drinking","drink","are drinking"],a:0},
+{q:"He ___ a shower now.",o:["takes","take","is taking","are taking"],a:2},
+{q:"We ___ football on Sundays.",o:["are playing","is playing","playing","play"],a:3},
+{q:"Listen! They ___.",o:["are singing","sing","sings","is singing"],a:0},
+{q:"My father ___ at a bank. It is his job.",o:["is working","work","working","works"],a:3},
+{q:"Be quiet! I ___ now.",o:["study","am studying","studies","studying"],a:1},
+{q:"___ you drink coffee every day?",o:["Are","Do","Is","Does"],a:1},
+{q:"It ___ often in autumn.",o:["rains","is raining","rain","are raining"],a:0},
+{q:"What ___ you doing now?",o:["do","does","are","is"],a:2},
+{q:"She ___ TV at the moment.",o:["doesn't watch","isn't watching","don't watching","not watches"],a:1},
+{q:"He ___ up at 6 every morning.",o:["is getting","get","getting","gets"],a:3},
+{q:"Choose the correct sentence.",o:["I am liking tea.","I likes tea.","I like tea.","I am like tea."],a:2},
+{q:"Look! He ___ a red hat.",o:["is wearing","wears","wear","are wearing"],a:0}
+]},
+{t:"Sanaladigan / sanalmaydigan, some / any",rule:"Sanaladigan otlarni sanash mumkin: an apple, two books. Sanalmaydigan otlarni sanab bo'lmaydi: water, milk, rice, money, bread.\nSanaladigan birlik ot oldidan a/an turadi: a book, an apple.\nsome darak gapda ishlatiladi: I have some milk. any inkor va savolda ishlatiladi: I don't have any milk. Do you have any milk?\nTaklif va iltimosda some ishlatiladi: Would you like some tea?\nSanalmaydigan otlar bilan a/an va ko'plik -s ishlatilmaydi.",ex:[["I have an apple.","Menda bitta olma bor."],["There is some milk in the fridge.","Muzlatgichda ozgina sut bor."],["Do you have any brothers?","Sening aka-ukalaring bormi?"],["We don't have any bread.","Bizda non yo'q."],["Would you like some tea?","Choy ichasizmi?"],["There are some students in the class.","Sinfda bir nechta o'quvchi bor."]],q:[
+{q:"I have ___ apple.",o:["a","an","some","any"],a:1},
+{q:"There is ___ milk in the fridge.",o:["a","an","some","many"],a:2},
+{q:"Do you have ___ brothers?",o:["some","a","any","an"],a:2},
+{q:"We don't have ___ bread.",o:["some","any","an","a"],a:1},
+{q:"Which word is uncountable?",o:["book","water","apple","pen"],a:1},
+{q:"Which word is countable?",o:["rice","milk","egg","money"],a:2},
+{q:"She has ___ eggs in the bag.",o:["some","a","an","any"],a:0},
+{q:"Would you like ___ tea?",o:["any","a","an","some"],a:3},
+{q:"There aren't ___ chairs in the room.",o:["any","some","a","an"],a:0},
+{q:"I need ___ water, please.",o:["a","an","some","two"],a:2},
+{q:"Is there ___ sugar in your tea?",o:["a","any","some","an"],a:1},
+{q:"He has ___ umbrella.",o:["an","a","some","any"],a:0},
+{q:"Choose the correct sentence.",o:["I have a money.","I have some money.","I have two money.","I have an money."],a:1},
+{q:"Choose the correct sentence.",o:["She hasn't a friends.","She hasn't some friends.","She hasn't an friends.","She hasn't any friends."],a:3},
+{q:"There are ___ students in the class.",o:["a","an","some","much"],a:2}
+]},
+{t:"How much / How many",rule:"How many sanaladigan ko'plik otlar bilan ishlatiladi: How many books? How many students?\nHow much sanalmaydigan otlar bilan ishlatiladi: How much water? How much money?\nNarx so'rashda ham How much ishlatiladi: How much is this book? How much are these shoes?\nHow much is (birlik), How much are (ko'plik).\nFormula: How many + ko'plik ot + are there / do you have?",ex:[["How many apples do you want?","Sizga nechta olma kerak?"],["How much water do you drink?","Siz qancha suv ichasiz?"],["How many students are in your class?","Sinfingizda nechta o'quvchi bor?"],["How much money do you have?","Sizda qancha pul bor?"],["How much is this book?","Bu kitob qancha turadi?"],["How much are these shoes?","Bu tuflilar qancha turadi?"]],q:[
+{q:"How ___ apples do you want?",o:["much","many","a","any"],a:1},
+{q:"How ___ water do you drink?",o:["many","some","much","are"],a:2},
+{q:"How ___ money do you have?",o:["much","many","some","an"],a:0},
+{q:"How ___ students are in your class?",o:["much","any","a","many"],a:3},
+{q:"How ___ sugar do we need?",o:["many","much","is","are"],a:1},
+{q:"How ___ brothers have you got?",o:["much","many","often","any"],a:1},
+{q:"How much ___ this book?",o:["are","does","is","have"],a:2},
+{q:"How much ___ these shoes?",o:["is","be","do","are"],a:3},
+{q:"How ___ time do you have?",o:["much","many","long","some"],a:0},
+{q:"How ___ eggs are there in the box?",o:["many","much","a","some"],a:0},
+{q:"How ___ rice do you eat?",o:["many","some","much","few"],a:2},
+{q:"How ___ people are there in your family?",o:["much","any","a","many"],a:3},
+{q:"Choose the correct sentence.",o:["How many milk do you want?","How much milk do you want?","How much milks do you want?","How many milks do you want?"],a:1},
+{q:"Choose the correct sentence.",o:["How much books are there?","How many book are there?","How many books are there?","How much book is there?"],a:2},
+{q:"How ___ cars does he have?",o:["many","much","a","is"],a:0}
+]},
+{t:"So'roq so'zlar (what, where, when...)",rule:"So'roq so'zlar gap boshida turadi.\nWhat = nima (What is this?), Where = qayerda (Where do you live?), When = qachon (When is the lesson?).\nWho = kim (Who is he?), Why = nima uchun (Why are you sad? - Because ...), How = qanday (How are you?).\nHow old = necha yosh, How many = nechta, How much = qancha.\nTartib: So'roq so'z + do/does/is/are + ega + fe'l: Where do you live?",ex:[["What is your name?","Ismingiz nima?"],["Where do you live?","Siz qayerda yashaysiz?"],["Who is that man?","U odam kim?"],["When do you go to school?","Maktabga qachon borasiz?"],["Why are you sad?","Nega xafasan?"],["How old are you?","Necha yoshdasiz?"]],q:[
+{q:"___ is your name?",o:["Where","What","When","Who"],a:1},
+{q:"___ do you live? In Tashkent.",o:["Where","Who","Why","How"],a:0},
+{q:"___ is that man? He is my uncle.",o:["What","When","Who","Where"],a:2},
+{q:"___ do you go to school? At 8 o'clock.",o:["Who","Where","Why","When"],a:3},
+{q:"___ are you sad? Because I'm tired.",o:["How","Why","Who","What"],a:1},
+{q:"___ are you? I'm fine, thanks.",o:["How","Why","Where","When"],a:0},
+{q:"___ old are you?",o:["What","Who","How","Where"],a:2},
+{q:"___ is your birthday? In May.",o:["Where","Why","How","When"],a:3},
+{q:"___ do you want? A cup of tea.",o:["What","Who","Where","Why"],a:0},
+{q:"___ is she crying? Because she is hurt.",o:["Where","Who","Why","When"],a:2},
+{q:"___ is your teacher? Mr. Karimov.",o:["Where","Who","When","How"],a:1},
+{q:"___ do you go to work? By bus.",o:["Who","Why","When","How"],a:3},
+{q:"___ is the bank? Next to the school.",o:["Who","Where","Why","How"],a:1},
+{q:"Choose the correct sentence.",o:["Where you live?","Where live you?","Where do you live?","Where do live you?"],a:2},
+{q:"___ many students are there?",o:["How","What","Where","Who"],a:0}
+]},
+{t:"Qiyosiy daraja (bigger than)",rule:"Ikki narsani solishtirishda sifatning qiyosiy darajasi ishlatiladi. Keyin than (dan) keladi.\nQisqa sifatlarga -er qo'shiladi: tall - taller, small - smaller. -e bilan tugasa -r: nice - nicer.\nUnli + undosh bilan tugasa undosh ikkilanadi: big - bigger, hot - hotter. -y bilan tugasa -ier: easy - easier, heavy - heavier.\nUzun sifatlar oldidan more keladi: more interesting, more expensive.\nBo'lakcha: good - better, bad - worse.",ex:[["An elephant is bigger than a horse.","Fil otdan kattaroq."],["Summer is hotter than spring.","Yoz bahordan issiqroq."],["This book is more interesting than that one.","Bu kitob anavidan qiziqarliroq."],["My bag is heavier than your bag.","Mening sumkam seningnikidan og'irroq."],["Today is better than yesterday.","Bugun kechagidan yaxshiroq."],["Cars are more expensive than bicycles.","Mashinalar velosipedlardan qimmatroq."]],q:[
+{q:"An elephant is ___ than a horse.",o:["big","bigger","biggest","more big"],a:1},
+{q:"My bag is ___ than your bag.",o:["heavier","heavy","heaviest","more heavy"],a:0},
+{q:"This book is ___ than that one.",o:["interestinger","most interesting","more interesting","interesting"],a:2},
+{q:"Tom is ___ than Ali.",o:["tall","tallest","more tall","taller"],a:3},
+{q:"Summer is ___ than winter.",o:["hot","hotter","hoter","more hot"],a:1},
+{q:"Her car is ___ than my car.",o:["faster","fast","fastest","more fast"],a:0},
+{q:"Cars are ___ than bicycles.",o:["expensiver","more expensive","most expensive","expensive"],a:1},
+{q:"Today is ___ than yesterday.",o:["good","more good","better","best"],a:2},
+{q:"My house is ___ your house.",o:["smaller than","small than","smaller as","more small"],a:0},
+{q:"A mouse is ___ than a cat.",o:["small","smallest","more small","smaller"],a:3},
+{q:"Math is ___ than English for me.",o:["difficult","most difficult","more difficult","difficulter"],a:2},
+{q:"She is ___ than her sister.",o:["young","younger","youngest","more young"],a:1},
+{q:"Choose the correct sentence.",o:["He is more tall than me.","He is taller than me.","He is tallest than me.","He is tall than me."],a:1},
+{q:"Choose the correct sentence.",o:["This test is more easy than that.","This test is easyer than that.","This test is easier than that.","This test is easiest than that."],a:2},
+{q:"My brother is ___ than me.",o:["oldest","more old","old","older"],a:3}
+]},
+{t:"Orttirma daraja (the biggest)",rule:"Orttirma daraja uch yoki undan ortiq narsa ichida eng ...ini bildiradi. Oldidan the keladi.\nQisqa sifatlarga -est qo'shiladi: tall - the tallest, small - the smallest, big - the biggest, hot - the hottest.\n-y bilan tugasa -iest: easy - the easiest, heavy - the heaviest.\nUzun sifatlar oldidan the most keladi: the most interesting, the most beautiful.\nBo'lakcha: good - the best, bad - the worst. Odatda in/of bilan: the biggest city in Uzbekistan.",ex:[["Mount Everest is the highest mountain in the world.","Everest dunyodagi eng baland tog'."],["She is the tallest girl in the class.","U sinfdagi eng baland bo'yli qiz."],["This is the most interesting film.","Bu eng qiziqarli film."],["He is the best player in the team.","U jamoadagi eng yaxshi o'yinchi."],["Today is the hottest day of the year.","Bugun yilning eng issiq kuni."],["That was the worst day of my life.","Bu hayotimdagi eng yomon kun edi."]],q:[
+{q:"Mount Everest is ___ mountain in the world.",o:["high","higher","the highest","highest"],a:2},
+{q:"She is ___ girl in the class.",o:["the tallest","taller","tallest","more tall"],a:0},
+{q:"This is ___ film I know.",o:["more interesting","the most interesting","most interesting","interestingest"],a:1},
+{q:"He is ___ player in the team.",o:["better","the goodest","best","the best"],a:3},
+{q:"Today is ___ day of the year.",o:["hotter","the hotest","the hottest","the most hot"],a:2},
+{q:"Summer is ___ season for me.",o:["warmer","the warmest","warm","most warm"],a:1},
+{q:"This is ___ book in the shop.",o:["expensive","more expensive","the expensivest","the most expensive"],a:3},
+{q:"Ali is ___ student in our class.",o:["young","younger","the youngest","the most young"],a:2},
+{q:"Tashkent is ___ city in Uzbekistan.",o:["bigger","the biggest","the bigest","the most big"],a:1},
+{q:"The elephant is ___ animal of the three.",o:["heavy","heavier","the heavyest","the heaviest"],a:3},
+{q:"That was ___ day of my life.",o:["worse","the worst","the baddest","the most bad"],a:1},
+{q:"This is ___ beautiful place in the country.",o:["the more","most","the most","the beautifulest"],a:2},
+{q:"Choose the correct sentence.",o:["He is fastest runner.","He is the fastest runner.","He is the faster runner.","He is the most fast runner."],a:1},
+{q:"Choose the correct sentence.",o:["This is the long river in Asia.","This is the longer river in Asia.","This is the longest river in Asia.","This is longest river in Asia."],a:2},
+{q:"My grandfather is ___ person in my family.",o:["older","oldest","the oldest","the older"],a:2}
+]},
+{t:"to be o'tgan zamon (was / were)",rule:"Was va were - to be fe'lining o'tgan zamon shakli.\nI / he / she / it + was: I was at home. She was happy.\nYou / we / they + were: They were in Samarkand.\nInkor: was not = wasn't, were not = weren't. Savol: Was he at home? Were you tired?\nBelgi so'zlar: yesterday, last week, two years ago, in 2010.",ex:[["I was at home yesterday.","Men kecha uyda edim."],["She was happy.","U xursand edi."],["They were in Samarkand last week.","Ular o'tgan hafta Samarqandda edi."],["We were tired last night.","Biz kecha kechqurun charchagan edik."],["He wasn't at school yesterday.","U kecha maktabda emas edi."],["Were you at the party?","Sen ziyofatda eding?"]],q:[
+{q:"I ___ at home yesterday.",o:["were","was","am","are"],a:1},
+{q:"They ___ in Samarkand last week.",o:["was","is","were","are"],a:2},
+{q:"She ___ happy yesterday.",o:["was","were","are","be"],a:0},
+{q:"We ___ tired last night.",o:["was","is","are","were"],a:3},
+{q:"He ___ not at school yesterday.",o:["was","were","are","did"],a:0},
+{q:"___ you at the party? Yes, I was.",o:["Was","Were","Did","Are"],a:1},
+{q:"___ she at home? No, she wasn't.",o:["Were","Did","Was","Is"],a:2},
+{q:"The shops ___ open yesterday.",o:["was","is","did","were"],a:3},
+{q:"It ___ cold last winter.",o:["were","is","was","are"],a:2},
+{q:"My parents ___ at work yesterday.",o:["was","is","were","did"],a:2},
+{q:"The film ___ good. I liked it.",o:["were","are","be","was"],a:3},
+{q:"I ___ in London two years ago.",o:["was","were","am","did"],a:0},
+{q:"Choose the correct sentence.",o:["They was late.","They were late.","They did late.","They be late."],a:1},
+{q:"Choose the correct sentence.",o:["Were he a doctor?","Did he a doctor?","Was he a doctor?","Is he a doctor yesterday?"],a:2},
+{q:"Yesterday ___ Monday.",o:["were","was","did","are"],a:1}
+]},
+{t:"Past Simple: to'g'ri fe'llar (-ed)",rule:"Past Simple o'tgan zamonda tugagan ishni bildiradi: yesterday, last week, an hour ago.\nTo'g'ri fe'llarga -ed qo'shiladi: play - played, watch - watched, clean - cleaned.\n-e bilan tugasa faqat -d: live - lived, love - loved. Undosh + y bo'lsa -ied: study - studied.\nBir bo'g'inli unli + undosh bo'lsa undosh ikkilanadi: stop - stopped.\nShakl barcha shaxslar uchun bir xil: I played, he played, they played.",ex:[["I played football yesterday.","Men kecha futbol o'ynadim."],["She opened the door.","U eshikni ochdi."],["We watched TV last night.","Biz kecha kechqurun televizor ko'rdik."],["He lived in Tashkent in 2015.","U 2015-yilda Toshkentda yashagan."],["They cleaned the room.","Ular xonani tozaladilar."],["She studied hard.","U qattiq o'qidi."]],q:[
+{q:"I ___ football yesterday.",o:["play","plays","played","playing"],a:2},
+{q:"She ___ the door a minute ago.",o:["opened","open","opens","opening"],a:0},
+{q:"We ___ TV last night.",o:["watch","watched","watches","watching"],a:1},
+{q:"He ___ in Tashkent in 2015.",o:["live","lives","living","lived"],a:3},
+{q:"They ___ the room yesterday.",o:["clean","cleanned","cleaned","cleans"],a:2},
+{q:"The past form of study is ___.",o:["studyed","studied","studed","studys"],a:1},
+{q:"The past form of stop is ___.",o:["stoped","stopt","stopped","stoping"],a:2},
+{q:"Yesterday I ___ my grandmother.",o:["visit","visits","visiting","visited"],a:3},
+{q:"She ___ English last year.",o:["learns","learned","learn","learning"],a:1},
+{q:"He ___ me an hour ago.",o:["called","calls","call","calling"],a:0},
+{q:"The past form of love is ___.",o:["lovved","loved","loveed","lovd"],a:1},
+{q:"My mother ___ dinner an hour ago.",o:["cook","cooked","cooks","cooking"],a:1},
+{q:"Choose the correct sentence.",o:["I walk to school yesterday.","I walkeded to school yesterday.","I am walked to school yesterday.","I walked to school yesterday."],a:3},
+{q:"Choose the correct sentence.",o:["She studied hard last night.","She studyed hard last night.","She studys hard last night.","She studieed hard last night."],a:0},
+{q:"They ___ for the bus yesterday.",o:["waited","wait","waits","waiting"],a:0}
+]},
+{t:"Past Simple: noto'g'ri fe'llar (go - went)",rule:"Noto'g'ri fe'llar -ed olmaydi, ularning o'tgan zamon shakli boshqacha bo'ladi. Ularni yodlash kerak.\ngo - went, see - saw, eat - ate, drink - drank, buy - bought, have - had.\nmake - made, take - took, come - came, give - gave, write - wrote, get - got, meet - met, know - knew.\nShakl barcha shaxslar uchun bir xil: I went, she went, they went.\nMisol: Yesterday I went to the market.",ex:[["I went to the market yesterday.","Men kecha bozorga bordim."],["She saw a nice film.","U chiroyli film ko'rdi."],["We ate pizza for dinner.","Biz kechki ovqatga pitsa yedik."],["He bought a new bag.","U yangi sumka sotib oldi."],["They had a big party.","Ularda katta ziyofat bo'ldi."],["My friend came to my house.","Do'stim uyimga keldi."]],q:[
+{q:"Yesterday I ___ to the market.",o:["go","goed","went","gone"],a:2},
+{q:"She ___ a nice film last night.",o:["saw","seen","sees","seed"],a:0},
+{q:"We ___ pizza for dinner.",o:["eated","ate","eaten","eats"],a:1},
+{q:"He ___ a letter to me.",o:["writed","writes","wrote","written"],a:2},
+{q:"I ___ a new bag yesterday.",o:["buy","buyed","brought","bought"],a:3},
+{q:"She ___ water this morning.",o:["drank","drinked","drunk","drinks"],a:0},
+{q:"He ___ me a gift.",o:["gived","gave","given","gives"],a:1},
+{q:"I ___ up at 6 yesterday.",o:["get","getted","got","gets"],a:2},
+{q:"We ___ our friends at the park.",o:["meeted","meet","meets","met"],a:3},
+{q:"The past form of have is ___.",o:["had","haved","has","having"],a:0},
+{q:"She ___ a cake last Sunday.",o:["maked","made","makes","make"],a:1},
+{q:"I ___ him very well in 2010.",o:["knowed","know","knew","known"],a:2},
+{q:"Choose the correct sentence.",o:["I seed him.","I sawed him.","I seen him.","I saw him."],a:3},
+{q:"Choose the correct sentence.",o:["She went home.","She goed home.","She gone home.","She goes home yesterday."],a:0},
+{q:"My friend ___ to my house yesterday.",o:["comed","came","come","comes"],a:1}
+]},
+{t:"Past Simple: inkor va savol (didn't, Did...?)",rule:"O'tgan zamonda inkor va savol uchun did yordamchi fe'li ishlatiladi. Asosiy fe'l o'zining oddiy shaklida qoladi.\nInkor: Subject + didn't + fe'l: I didn't watch TV. She didn't go to school.\nSavol: Did + subject + fe'l?: Did you eat breakfast? Did he call you?\nQisqa javob: Yes, I did. / No, I didn't.\nDiqqat: did bilan -ed yoki went emas, oddiy shakl keladi: Did you go? (Did you went? - xato).",ex:[["I didn't watch TV yesterday.","Men kecha televizor ko'rmadim."],["She didn't go to school.","U maktabga bormadi."],["Did you eat breakfast?","Nonushta qildingmi?"],["Did he call you?","U senga qo'ng'iroq qildimi?"],["Yes, I did. / No, I didn't.","Ha. / Yo'q."],["What did you do yesterday?","Kecha nima qilding?"]],q:[
+{q:"I ___ watch TV yesterday.",o:["didn't","don't","doesn't","wasn't"],a:0},
+{q:"She ___ go to school yesterday.",o:["not","didn't","doesn't","don't"],a:1},
+{q:"___ you eat breakfast this morning?",o:["Do","Does","Did","Were"],a:2},
+{q:"He didn't ___ the door.",o:["opened","opens","opening","open"],a:3},
+{q:"Did she ___ English last year?",o:["study","studied","studies","studying"],a:0},
+{q:"We ___ see him last week.",o:["don't","aren't","didn't","weren't"],a:2},
+{q:"Did they go there? Yes, they ___.",o:["did","do","went","were"],a:0},
+{q:"___ he call you yesterday?",o:["Does","Is","Was","Did"],a:3},
+{q:"I didn't ___ any money.",o:["had","have","has","having"],a:1},
+{q:"Did you like the film? No, I ___.",o:["don't","wasn't","not","didn't"],a:3},
+{q:"She ___ cook dinner last night. She was tired.",o:["didn't","doesn't","don't","isn't"],a:0},
+{q:"What ___ you do yesterday?",o:["do","does","did","are"],a:2},
+{q:"Choose the correct sentence.",o:["Did you went there?","Do you went there?","Were you go there?","Did you go there?"],a:3},
+{q:"Choose the correct sentence.",o:["He didn't played football.","He doesn't played football.","He didn't play football.","He not played football."],a:2},
+{q:"Choose the correct sentence.",o:["Where you went yesterday?","Where did you go yesterday?","Where did you went yesterday?","Where do you went yesterday?"],a:1}
+]},
+{t:"Kelasi zamon: will / going to",rule:"Kelajak haqida gapirishning ikki yo'li bor.\nwill + fe'l: shu payt qilingan qaror, va'da, taxmin uchun. I will call you. I think it will be sunny.\nam/is/are going to + fe'l: oldindan rejalashtirilgan ish yoki ko'rinib turgan belgi uchun. I am going to study tonight. Look at the clouds! It is going to rain.\nInkor: won't (will not), am/is/are not going to. Savol: Will you come? Are you going to play?\nwill dan keyin to ishlatilmaydi: I will help you.",ex:[["I will call you tomorrow.","Men sizga ertaga qo'ng'iroq qilaman."],["I think it will be sunny tomorrow.","Menimcha ertaga havo ochiq bo'ladi."],["She is going to visit her aunt.","U xolasinikiga bormoqchi."],["They are going to buy a car.","Ular mashina sotib olmoqchi."],["He won't be late.","U kechikmaydi."],["Are you going to play football?","Futbol o'ynamoqchimisan?"]],q:[
+{q:"Look at the clouds! It ___ rain.",o:["is going to","going to","does going to","will to"],a:0},
+{q:"Don't worry, I promise. I ___ call you tomorrow.",o:["will","am go to","going","are going"],a:0},
+{q:"Tomorrow she ___ visit her aunt. It is her plan.",o:["going to","does going to","is going to","will to"],a:2},
+{q:"I think it ___ be sunny tomorrow.",o:["is going","will","going to","does"],a:1},
+{q:"They ___ going to buy a car.",o:["is","am","are","will"],a:2},
+{q:"I ___ going to study tonight.",o:["is","are","will","am"],a:3},
+{q:"She will ___ tomorrow.",o:["come","comes","came","coming"],a:0},
+{q:"Next year we ___ to London.",o:["will goes","will go","going","goed"],a:1},
+{q:"___ you going to play football?",o:["Is","Do","Are","Does"],a:2},
+{q:"He won't ___ late.",o:["is","are","was","be"],a:3},
+{q:"It's cold. I ___ close the window.",o:["am going","will","going to","do"],a:1},
+{q:"We aren't going to ___ TV.",o:["watch","watching","watches","watched"],a:0},
+{q:"Choose the correct sentence.",o:["I will to help you.","I will helps you.","I will help you.","I will helping you."],a:2},
+{q:"Choose the correct sentence.",o:["He going to travel.","He is going travel.","He will to travel.","He is going to travel."],a:3},
+{q:"___ it rain tomorrow? What do you think?",o:["Will","Are","Does","Is"],a:0}
+]},
+{t:"have to / must / should",rule:"have to va must majburiyatni bildiradi: bu qilish kerak.\nI/you/we/they have to, he/she/it has to: She has to wear a uniform. must dan keyin to yo'q: You must stop.\nmustn't = qilish mumkin emas (taqiq): You mustn't smoke here.\ndon't/doesn't have to = shart emas: He doesn't have to work on Sunday.\nshould = maslahat (yaxshisi, kerak): You should see a doctor. Hamma fe'llardan keyin oddiy fe'l keladi.",ex:[["I have to get up early for school.","Maktab uchun erta turishim kerak."],["She has to wear a uniform.","U forma kiyishi shart."],["You must stop at a red light.","Qizil chiroqda to'xtashingiz shart."],["You should see a doctor.","Siz shifokorga borishingiz kerak."],["You mustn't smoke here.","Bu yerda chekish mumkin emas."],["He doesn't have to pay.","U to'lashi shart emas."]],q:[
+{q:"I ___ get up early for school. It is necessary.",o:["have to","has to","should to","musts"],a:0},
+{q:"She ___ wear a uniform at work.",o:["have to","has to","must to","should to"],a:1},
+{q:"You ___ stop at a red light.",o:["musts","are must","must","do must"],a:2},
+{q:"You look ill. You ___ see a doctor.",o:["musts","has to","shoulds","should"],a:3},
+{q:"You ___ smoke here. It is forbidden.",o:["should","mustn't","have to","has to"],a:1},
+{q:"He ___ work on Sunday. It's a holiday.",o:["don't have to","doesn't have to","doesn't has to","must to"],a:1},
+{q:"We ___ wear a coat. It is warm.",o:["don't have to","doesn't has to","mustn't to","not have to"],a:0},
+{q:"You ___ eat more vegetables. It's good for you.",o:["have","has to","should","musts"],a:2},
+{q:"I have to ___ my homework.",o:["do","does","doing","did"],a:0},
+{q:"Do you have to ___ early?",o:["gets","getting","got","get"],a:3},
+{q:"She should ___ more water.",o:["drinks","drank","drink","drinking"],a:2},
+{q:"He ___ go now. His train leaves in 5 minutes.",o:["have to","has to","shoulds","mustn't to"],a:1},
+{q:"Choose the correct sentence.",o:["She must goes now.","She musts go now.","She must go now.","She must to go now."],a:2},
+{q:"Choose the correct sentence.",o:["He don't have to pay.","He doesn't has to pay.","He not have to pay.","He doesn't have to pay."],a:3},
+{q:"Does she ___ to go?",o:["has","have","must","should"],a:1}
+]}
+]);
+
+window.TEXTS=(window.TEXTS||[]).concat([
+  {t:"Oilam",title:"My Family",text:"My name is Ali. I have a big family. My father is Karim. He is a teacher. My mother is Dilya. She is a nurse. I have one brother and one sister. My brother is Sam. My sister is Lola. We live in one house. I love my family.",q:[
+    {q:"What is the boy's name?",o:["Sam","Ali","Karim","Lola"],a:1},
+    {q:"What is Ali's father's name?",o:["Ali","Sam","Karim","Dilya"],a:2},
+    {q:"What is Ali's father's job?",o:["Doctor","Driver","Nurse","Teacher"],a:3},
+    {q:"What is Ali's mother's job?",o:["Nurse","Teacher","Cook","Doctor"],a:0},
+    {q:"How many brothers does Ali have?",o:["Two","One","Three","None"],a:1},
+    {q:"What is Ali's sister's name?",o:["Dilya","Sam","Lola","Anna"],a:2},
+    {q:"Where does the family live?",o:["In two houses","In a flat","In a hotel","In one house"],a:3},
+    {q:"What does Ali love?",o:["His family","His school","His house","His cat"],a:0},
+    {q:"What is Ali's brother's name?",open:["sam","his name is sam"]},
+    {q:"What is Ali's mother's name?",open:["dilya","her name is dilya"]}
+  ]},
+  {t:"Salomlashish va tanishuv",title:"Hello! Nice to Meet You",text:"Hello! My name is Anna. I am from London. Today is my first day at school. In the morning, I say \"Good morning\" to my teacher. A boy says, \"Hi! I am Tom. Nice to meet you.\" I say, \"Nice to meet you too.\" In the afternoon we say, \"Goodbye! See you tomorrow.\"",q:[
+    {q:"Where is Anna from?",o:["Paris","London","Rome","Berlin"],a:1},
+    {q:"What day is it today?",o:["Her last day","Sunday","Her birthday","Her first day at school"],a:3},
+    {q:"What does Anna say in the morning?",o:["Good night","Goodbye","Good morning","Good evening"],a:2},
+    {q:"Who does Anna say it to?",o:["Her teacher","Her mother","Tom","Her sister"],a:0},
+    {q:"Who is Tom?",o:["A teacher","A boy","Her brother","A doctor"],a:1},
+    {q:"What does Tom say?",o:["Goodbye, Anna","I am sorry","Hi! I am Tom","Good night"],a:2},
+    {q:"What do they say in the afternoon?",o:["Good morning","Hello","Nice to meet you","Goodbye"],a:3},
+    {q:"When do they see each other again?",o:["Tomorrow","Today","On Monday","Tonight"],a:0},
+    {q:"What is the boy's name?",open:["tom"]},
+    {q:"What does Anna say to her teacher?",open:["good morning"]}
+  ]},
+  {t:"Sonlar",title:"Sara's Shop",text:"Sara has a small shop. In the shop there are two big tables and four chairs. On the tables there are ten red apples and twelve yellow bananas. Sara has three children. The oldest child is seven years old. The shop opens at eight o'clock and closes at six o'clock. Sara works five days a week. She likes numbers.",q:[
+    {q:"How many tables are there in the shop?",o:["Four","Two","Ten","Three"],a:1},
+    {q:"How many chairs are there?",o:["Three","Two","Five","Four"],a:3},
+    {q:"How many red apples are there?",o:["Ten","Twelve","Seven","Two"],a:0},
+    {q:"How many yellow bananas are there?",o:["Ten","Four","Twelve","Eight"],a:2},
+    {q:"How many children does Sara have?",o:["Two","Three","Four","Seven"],a:1},
+    {q:"How old is the oldest child?",o:["Three","Ten","Eight","Seven"],a:3},
+    {q:"When does the shop open?",o:["At eight o'clock","At six o'clock","At seven o'clock","At ten o'clock"],a:0},
+    {q:"How many days a week does Sara work?",o:["Seven","Five","Six","Four"],a:1},
+    {q:"What time does the shop close?",open:["six oclock","6 oclock","six","6"]},
+    {q:"What does Sara like?",open:["numbers","she likes numbers"]}
+  ]},
+  {t:"Ranglar",title:"Maya's Colorful Room",text:"Maya loves colors. Her room is blue. The bed is white and the desk is brown. On the wall there is a big green tree picture. She has a yellow bag and a red pencil case. Her favorite color is purple. She has a purple hat and purple shoes. Her brother likes black and grey. He has a black cat. The cat has white feet.",q:[
+    {q:"What color is Maya's room?",o:["Red","Green","Blue","White"],a:2},
+    {q:"What color is the bed?",o:["White","Brown","Blue","Black"],a:0},
+    {q:"What color is the desk?",o:["Grey","Green","Yellow","Brown"],a:3},
+    {q:"What is on the wall?",o:["A red flag","A green tree picture","A blue clock","A white map"],a:1},
+    {q:"What color is Maya's bag?",o:["Yellow","Red","Purple","Black"],a:0},
+    {q:"What is red?",o:["Her hat","Her shoes","Her pencil case","Her bag"],a:2},
+    {q:"Which colors does her brother like?",o:["Pink and orange","Purple and red","Green and blue","Black and grey"],a:3},
+    {q:"What color are the cat's feet?",o:["Black","White","Grey","Brown"],a:1},
+    {q:"What is Maya's favorite color?",open:["purple"]},
+    {q:"What color is the cat?",open:["black"]}
+  ]},
+  {t:"Ovqatlar",title:"Ben's Food",text:"Every morning Ben eats breakfast at seven o'clock. He has bread, eggs and cheese. For lunch he eats rice with meat and a salad at school. His favorite food is pizza, but he does not eat it every day. In the evening, his mother cooks soup. The family eats dinner together at home. Ben does not like fish. He likes cake for dessert. It is sweet and very good.",q:[
+    {q:"When does Ben eat breakfast?",o:["At eight o'clock","At six o'clock","At seven o'clock","At nine o'clock"],a:2},
+    {q:"What does Ben have for breakfast?",o:["Rice and meat","Bread, eggs and cheese","Soup and fish","Pizza and cake"],a:1},
+    {q:"Where does Ben eat lunch?",o:["At home","In a cafe","In the park","At school"],a:3},
+    {q:"What does Ben eat for lunch?",o:["Rice with meat and a salad","Eggs and bread","Only pizza","Fish and soup"],a:0},
+    {q:"What is Ben's favorite food?",o:["Soup","Pizza","Cake","Rice"],a:1},
+    {q:"Who cooks soup in the evening?",o:["His father","His sister","His mother","His teacher"],a:2},
+    {q:"Where does the family eat dinner?",o:["At school","In a cafe","In a park","At home"],a:3},
+    {q:"What is the cake like?",o:["Sour","Sweet","Hot","Salty"],a:1},
+    {q:"What does Ben not like?",open:["fish"]},
+    {q:"What does Ben like for dessert?",open:["cake"]}
+  ]},
+  {t:"Ichimliklar",title:"At the Cafe",text:"Nina and her friend Lola are at a cafe. It is a hot day. Nina wants a glass of cold water. Lola likes tea, but today she orders orange juice. The waiter brings the drinks. Nina's brother drinks coffee every morning, but Nina does not like it. At night she drinks a cup of warm milk. Lola never drinks cola because it is not good for her teeth. They both love fresh juice.",q:[
+    {q:"Where are Nina and Lola?",o:["At school","At home","At a market","At a cafe"],a:3},
+    {q:"What is the weather like?",o:["Cold","Rainy","Hot","Snowy"],a:2},
+    {q:"What does Nina want?",o:["Hot tea","Cold water","Juice","Milk"],a:1},
+    {q:"What does Lola order?",o:["Orange juice","Tea","Coffee","Cola"],a:0},
+    {q:"Who brings the drinks?",o:["Nina's brother","The teacher","A friend","The waiter"],a:3},
+    {q:"Who drinks coffee every morning?",o:["Nina","Lola","Nina's brother","The waiter"],a:2},
+    {q:"What does Nina drink at night?",o:["Warm milk","Cold water","Tea","Juice"],a:0},
+    {q:"Why does Lola never drink cola?",o:["It is hot","It is not good for her teeth","It is expensive","She does not like water"],a:1},
+    {q:"What does Lola never drink?",open:["cola"]},
+    {q:"What do Nina and Lola both love?",open:["fresh juice","juice"]}
+  ]},
+  {t:"Mevalar",title:"At the Fruit Market",text:"Today is Saturday. Tom and his mother go to the fruit market. There are many fruits on the tables. Tom sees red apples, yellow bananas, orange oranges and green grapes. His mother buys two kilos of apples and a big watermelon. Tom likes strawberries because they are sweet. He asks for a small box. The seller gives him a lemon too, but Tom does not like it. It is very sour. At home, they make a fruit salad for dinner.",q:[
+    {q:"What day is it?",o:["Sunday","Saturday","Friday","Monday"],a:1},
+    {q:"Who goes to the market with Tom?",o:["His father","His sister","His friend","His mother"],a:3},
+    {q:"What color are the grapes?",o:["Green","Red","Yellow","Orange"],a:0},
+    {q:"How many kilos of apples does his mother buy?",o:["One","Three","Two","Five"],a:2},
+    {q:"What big fruit does she buy?",o:["A melon","A watermelon","A pineapple","A lemon"],a:1},
+    {q:"Why does Tom like strawberries?",o:["They are sour","They are big","They are green","They are sweet"],a:3},
+    {q:"What does the seller give Tom?",o:["A lemon","An apple","A banana","A box"],a:0},
+    {q:"What color are the bananas?",o:["Green","Red","Yellow","Orange"],a:2},
+    {q:"What do they make for dinner?",open:["fruit salad","a fruit salad"]},
+    {q:"What fruit is very sour?",open:["lemon","a lemon"]}
+  ]},
+  {t:"Sabzavotlar",title:"The Vegetable Garden",text:"Mr. Karimov has a small garden behind his house. He grows many vegetables. In spring he plants potatoes, carrots and onions. In summer there are tomatoes, cucumbers and peppers in the garden. His wife uses them to make a fresh salad every day. Their son Jasur does not like cabbage, but he loves potatoes. Mr. Karimov says, \"Vegetables are good for your body.\" Every Sunday he gives some carrots to his neighbor. The neighbor says thank you and smiles.",q:[
+    {q:"Where is the garden?",o:["In front of the school","Behind his house","In the city","At the market"],a:1},
+    {q:"What does he plant in spring?",o:["Tomatoes and peppers","Cabbage and fish","Potatoes, carrots and onions","Apples and grapes"],a:2},
+    {q:"When are there tomatoes in the garden?",o:["In spring","In winter","In autumn","In summer"],a:3},
+    {q:"Who makes a salad every day?",o:["His wife","His son","His neighbor","Mr. Karimov"],a:0},
+    {q:"Who is Jasur?",o:["His friend","His son","His brother","His neighbor"],a:1},
+    {q:"What does Jasur love?",o:["Cabbage","Peppers","Potatoes","Tomatoes"],a:2},
+    {q:"What does Mr. Karimov say?",o:["Vegetables are cheap","Vegetables are big","Vegetables are red","Vegetables are good for your body"],a:3},
+    {q:"What does the neighbor do?",o:["Says no","Cries","Says thank you and smiles","Sleeps"],a:2},
+    {q:"What does Jasur not like?",open:["cabbage"]},
+    {q:"What does Mr. Karimov give to his neighbor?",open:["carrots","some carrots"]}
+  ]},
+  {t:"Hayvonlar",title:"Animals on the Farm",text:"Dilnoza lives near a farm. There are many animals on the farm. There are five cows, ten sheep and twenty chickens. A horse lives there too. It is big and brown. Dilnoza has a small white rabbit and a dog named Rex. Rex is very friendly and he can run fast. Dilnoza's cat sleeps all day. In the evening, birds sing in the trees. Dilnoza loves animals. On Sundays, she visits the farm and gives food to the chickens. She wants to be a vet in the future.",q:[
+    {q:"Where does Dilnoza live?",o:["Near a farm","In a big city","Near a river","In a zoo"],a:0},
+    {q:"How many cows are there on the farm?",o:["Ten","Twenty","Five","Three"],a:2},
+    {q:"How many chickens are there?",o:["Twenty","Ten","Five","Fifty"],a:0},
+    {q:"What color is the horse?",o:["White","Black","Grey","Brown"],a:3},
+    {q:"Which animal is small and white?",o:["The cat","The rabbit","The dog","The sheep"],a:1},
+    {q:"What can Rex do?",o:["Fly","Sing","Run fast","Swim"],a:2},
+    {q:"When do the birds sing?",o:["In the morning","At night","At noon","In the evening"],a:3},
+    {q:"What does Dilnoza give to the chickens?",o:["Water","Food","Milk","Bread"],a:1},
+    {q:"What is the dog's name?",open:["rex"]},
+    {q:"What does Dilnoza want to be?",open:["a vet","vet"]}
+  ]},
+  {t:"Uy",title:"My House",text:"We live in a house in a small town. It is a white house with a red roof. There is a big garden in front of the house. In the garden there are flowers and two apple trees. My father likes to sit under the trees in the evening.\n\nOur house has six rooms. There is a living room, a kitchen, two bedrooms, a bathroom and a small hall. The kitchen is my mother's favorite room. She cooks there every day. My bedroom is on the second floor. It has a big window and a door to the balcony. In the morning I see the sun from my window. I love my house because it is warm and quiet.",q:[
+    {q:"What color is the house?",o:["Red","Green","White","Yellow"],a:2},
+    {q:"What color is the roof?",o:["Red","White","Brown","Black"],a:0},
+    {q:"What is in front of the house?",o:["A river","A road","A school","A big garden"],a:3},
+    {q:"How many apple trees are in the garden?",o:["Two","Three","One","Four"],a:0},
+    {q:"When does father sit under the trees?",o:["In the morning","In the evening","At night","At noon"],a:1},
+    {q:"How many rooms does the house have?",o:["Four","Five","Six","Seven"],a:2},
+    {q:"Where is the speaker's bedroom?",o:["In the garden","On the first floor","Next to the kitchen","On the second floor"],a:3},
+    {q:"Why does the speaker love the house?",o:["It is big and new","It is warm and quiet","It is near school","It is cheap"],a:1},
+    {q:"Whose favorite room is the kitchen?",open:["mother","my mother","the mother","mothers"]},
+    {q:"What can the speaker see from the window in the morning?",open:["the sun","sun"]}
+  ]},
+  {t:"Mebel va uy-ro'zg'or buyumlari",title:"Furniture at Home",text:"This is my living room. It is not very big, but it is nice. There is a brown sofa near the window. In front of the sofa there is a small table. On the table there is a lamp and a clock. There are two armchairs and a TV too. On the floor there is a soft carpet.\n\nMy bedroom has a bed, a wardrobe and a desk. The desk is next to the window. There is a chair at the desk. My books are on a shelf above the desk. In the kitchen there is a fridge, a stove and a table with four chairs. My mother says, \"Everything has its place.\" I agree.",q:[
+    {q:"What is near the window in the living room?",o:["A brown sofa","A TV","A table","An armchair"],a:0},
+    {q:"What is on the small table?",o:["A TV and a lamp","A book and a pen","A lamp and a clock","A phone"],a:2},
+    {q:"How many armchairs are there?",o:["One","Three","Four","Two"],a:3},
+    {q:"What is on the floor?",o:["A soft carpet","A cat","A lamp","A chair"],a:0},
+    {q:"What does the bedroom have?",o:["A sofa, a TV and a lamp","A bed, a wardrobe and a desk","A fridge and a stove","A table and four chairs"],a:1},
+    {q:"Where are the books?",o:["On the desk","On the bed","On a shelf above the desk","In the wardrobe"],a:2},
+    {q:"What is in the kitchen?",o:["A bed","A sofa","A carpet","A fridge, a stove and a table"],a:3},
+    {q:"How many chairs are at the kitchen table?",o:["Two","Four","Six","Three"],a:1},
+    {q:"What color is the sofa?",open:["brown"]},
+    {q:"What is next to the window in the bedroom?",open:["desk","the desk","a desk"]}
+  ]},
+  {t:"Kiyimlar",title:"What to Wear",text:"Today is a cold day in January. Aziz gets up at seven o'clock and goes to his wardrobe. He puts on a warm sweater, blue jeans and thick socks. Then he puts on his black boots. Outside it is snowing, so he takes his coat, a hat and gloves too.\n\nHis sister Malika wears a school uniform: a white blouse, a grey skirt and black shoes. In summer she likes to wear a light dress and sandals. Her brother prefers shorts and a T-shirt in hot weather. On Sunday the family goes to a wedding. Father wears a dark suit and a tie. Mother wears a long red dress. Malika wants a new scarf, but she has only an old one.",q:[
+    {q:"What is the weather like today?",o:["Hot","Rainy","Cold","Windy"],a:2},
+    {q:"When does Aziz get up?",o:["At six o'clock","At eight o'clock","At nine o'clock","At seven o'clock"],a:3},
+    {q:"What color are Aziz's jeans?",o:["Black","Blue","Grey","Brown"],a:1},
+    {q:"What color are his boots?",o:["Black","Brown","White","Blue"],a:0},
+    {q:"Why does Aziz take a coat, a hat and gloves?",o:["It is raining","It is windy","It is snowing","It is hot"],a:2},
+    {q:"What does Malika wear to school?",o:["A uniform","A dress","Jeans","A suit"],a:0},
+    {q:"What does Father wear to the wedding?",o:["A coat","A dark suit and a tie","Shorts","A sweater"],a:1},
+    {q:"What does Malika want?",o:["New shoes","A new bag","A new dress","A new scarf"],a:3},
+    {q:"What color is Malika's skirt?",open:["grey","gray"]},
+    {q:"What does Mother wear to the wedding?",open:["long red dress","a long red dress","red dress","a red dress"]}
+  ]},
+  {t:"Tana a'zolari",title:"The Human Body",text:"The human body has many parts. We have a head, two arms and two legs. On the head there are two eyes, two ears, a nose and a mouth. We see with our eyes and hear with our ears. We smell with our nose and eat with our mouth.\n\nOur hands have five fingers each. We write and hold things with our hands. We walk and run with our feet and legs. Our back and neck help us stand and sit. Inside the body there is a heart. It is small, but it works all day and night. Our brain is in our head, and we think with it. Dr. Rashid says, \"Wash your hands, brush your teeth and exercise every day. Then your body stays healthy.\"",q:[
+    {q:"How many arms do we have?",o:["One","Two","Three","Four"],a:1},
+    {q:"What do we see with?",o:["Ears","Nose","Eyes","Mouth"],a:2},
+    {q:"What do we hear with?",o:["Ears","Eyes","Hands","Nose"],a:0},
+    {q:"What do we smell with?",o:["Mouth","Nose","Ears","Eyes"],a:1},
+    {q:"How many fingers are on each hand?",o:["Four","Six","Ten","Five"],a:3},
+    {q:"What do we walk and run with?",o:["Hands","Arms","Feet and legs","Neck"],a:2},
+    {q:"What is small and works all day and night?",o:["Back","Neck","Brain","Heart"],a:3},
+    {q:"Where is the brain?",o:["In the head","In the hand","In the foot","In the back"],a:0},
+    {q:"What do we think with?",open:["brain","our brain","the brain"]},
+    {q:"What does Dr. Rashid say to wash?",open:["hands","your hands"]}
+  ]},
+  {t:"Maktab",title:"A Day at School",text:"Zarina is a student at School Number 5. Every morning she goes to school with her friend Lola. Lessons start at eight o'clock. Zarina has five lessons a day: English, maths, science, music and art. Her English teacher is Mrs. Brown. She is kind and funny.\n\nIn the classroom there are twenty desks, a blackboard and a big clock. Zarina has a bag with her books, notebooks, a pen, a pencil and a ruler. At ten o'clock there is a break. The students go to the playground and play games. Lunch is at twelve. Zarina likes music lessons the most because she can sing. After school she does her homework and reads a book. She wants to be a good student.",q:[
+    {q:"Which school does Zarina go to?",o:["School Number 3","School Number 5","School Number 10","School Number 1"],a:1},
+    {q:"Who does Zarina go to school with?",o:["Her mother","Her brother","Her teacher","Her friend Lola"],a:3},
+    {q:"When do lessons start?",o:["At seven o'clock","At nine o'clock","At eight o'clock","At ten o'clock"],a:2},
+    {q:"How many lessons does Zarina have a day?",o:["Five","Four","Six","Seven"],a:0},
+    {q:"Who is Mrs. Brown?",o:["The maths teacher","The English teacher","The music teacher","The art teacher"],a:1},
+    {q:"How many desks are in the classroom?",o:["Ten","Twenty","Thirty","Fifteen"],a:1},
+    {q:"What time is the break?",o:["At ten o'clock","At eight o'clock","At twelve o'clock","At two o'clock"],a:0},
+    {q:"Which lesson does Zarina like the most?",o:["Maths","Art","Science","Music"],a:3},
+    {q:"What time is lunch?",open:["twelve","twelve oclock","12","12 oclock","at twelve"]},
+    {q:"What does Zarina want to be?",open:["a good student","good student","student"]}
+  ]},
+  {t:"Kasblar",title:"Different Jobs",text:"People have different jobs. My uncle is a doctor. He works in a hospital and helps sick people. My aunt is a teacher. She teaches children in a small school. My neighbor is a driver. He drives a bus in the city every day.\n\nLast year my cousin was a student. Now he is an engineer and builds bridges. My friend's mother is a cook in a restaurant. She makes tasty soup. There is a farmer in our village too. He works in the fields from morning to evening. A policeman works near my house. He helps people and keeps the street safe. I want to be a pilot. I like planes, and I want to fly around the world.",q:[
+    {q:"Where does the uncle work?",o:["In a school","In a hospital","In a restaurant","In a field"],a:1},
+    {q:"What does the aunt do?",o:["Drives a bus","Cooks soup","Teaches children","Helps sick people"],a:2},
+    {q:"What does the neighbor drive?",o:["A bus","A car","A taxi","A train"],a:0},
+    {q:"What does the cousin build?",o:["Houses","Roads","Bridges","Planes"],a:2},
+    {q:"Where does the friend's mother work?",o:["In a hospital","In a school","In a shop","In a restaurant"],a:3},
+    {q:"Where does the farmer work?",o:["In the fields","In the city","In an office","In a school"],a:0},
+    {q:"What does the policeman do?",o:["Cooks soup","Drives a bus","Builds bridges","Keeps the street safe"],a:3},
+    {q:"What was the cousin last year?",o:["A doctor","A student","A driver","A pilot"],a:1},
+    {q:"What is the speaker's uncle's job?",open:["doctor","a doctor"]},
+    {q:"What does the speaker want to be?",open:["pilot","a pilot"]}
+  ]}
+]);
+
+window.TEXTS=(window.TEXTS||[]).concat([
+  {t:"Transport",title:"How We Travel",text:"My name is Tom and I live in a big city. Every day I go to work by bus. The bus stop is near my house. I wait for the bus for ten minutes. The bus is often full, but I like it because it is cheap. A ticket costs one dollar.\n\nMy wife Sara goes to work by train. The train station is far from our home, so she takes a taxi to the station. She says the train is fast and comfortable. Our son Ben goes to school by bike. He wears a helmet because it is safe.\n\nAt the weekend we sometimes travel by car. My father has an old blue car. Last Sunday we drove to the lake. We also like planes, but we do not fly often. Planes are expensive. Next summer we will take a plane to Spain.",q:[
+    {q:"How does Tom go to work?",o:["By train","By bus","By bike","By car"],a:1},
+    {q:"How much is a bus ticket?",o:["Ten dollars","Two dollars","Five dollars","One dollar"],a:3},
+    {q:"How does Sara get to the train station?",o:["By taxi","On foot","By bus","By bike"],a:0},
+    {q:"Why does Ben wear a helmet?",o:["It is cheap","It is new","It is safe","It is blue"],a:2},
+    {q:"Who has an old blue car?",o:["Tom's father","Tom's wife","Tom's son","Tom's friend"],a:0},
+    {q:"Where did the family drive last Sunday?",o:["To the sea","To the lake","To the city","To the airport"],a:1},
+    {q:"Why do they not fly often?",o:["Planes are slow","They are afraid","Planes are expensive","They have no time"],a:2},
+    {q:"Where will they go next summer?",o:["Italy","Egypt","Turkey","Spain"],a:3},
+    {q:"How long does Tom wait for the bus?",open:["ten minutes","10 minutes","for ten minutes"]},
+    {q:"Who goes to school by bike?",open:["ben","tom's son","his son","their son","son"]}
+  ]},
+  {t:"Shahar joylari",title:"My City",text:"Welcome to my city. It is not very big, but it is nice. In the centre there is a large park with a fountain. Near the park you can find a library, a museum and a cinema. I often go to the library after school because I like reading books.\n\nOpposite the library there is a bank and a post office. My mother works in the hospital, which is behind the bank. There is also a big supermarket on Green Street. The bakery next to it sells fresh bread every morning.\n\nMy school is not far from my house. I walk there in ten minutes. On Saturdays my friends and I go to the cinema or visit the zoo. In the evening we sometimes eat in a small café near the bridge. It is my favourite place in the city.",q:[
+    {q:"What is in the centre of the city?",o:["A big market","A large park with a fountain","A school","A station"],a:1},
+    {q:"Why does the writer go to the library?",o:["To meet friends","To work","To eat","To read books"],a:3},
+    {q:"What is opposite the library?",o:["A cinema","A museum","A bank and a post office","A zoo"],a:2},
+    {q:"Where does the writer's mother work?",o:["In the hospital","In a bank","In a school","In a bakery"],a:0},
+    {q:"Where is the supermarket?",o:["On Main Street","On Park Road","On School Street","On Green Street"],a:3},
+    {q:"What does the bakery sell?",o:["Milk","Fresh bread","Fruit","Tickets"],a:1},
+    {q:"How long does the writer walk to school?",o:["Five minutes","Twenty minutes","Ten minutes","One hour"],a:2},
+    {q:"Where do the friends go on Saturdays?",o:["To the cinema or the zoo","To the museum","To the library","To the bridge"],a:0},
+    {q:"What is the writer's favourite place?",open:["a small cafe","small cafe","cafe","the cafe","a small café","café"]},
+    {q:"What is behind the bank?",open:["hospital","the hospital","a hospital"]}
+  ]},
+  {t:"Xarid",title:"A Day of Shopping",text:"Last Saturday I went shopping with my sister Lola. First we went to the market to buy fruit and vegetables. We bought apples and tomatoes. The apples were cheap, only 8,000 sum a kilo. The seller was a friendly old man and he gave us a free melon.\n\nThen we visited a big shopping centre. Lola wanted to buy a new dress for her birthday. She tried on a red dress, but it was too small. She tried on a blue one, and it fitted well. The price was 200,000 sum.\n\nI needed new shoes. Then I saw a sale. Shoes were half price! I bought black shoes for 150,000 sum.\n\nAfter shopping we were tired and hungry. We took a taxi home. I love shopping, but I cannot buy everything. Next week I will look for a warm jacket.",q:[
+    {q:"Who went shopping with the writer?",o:["A friend","The writer's sister","The writer's mother","A teacher"],a:1},
+    {q:"Where did they buy fruit and vegetables?",o:["At the market","At a small shop","At a bakery","At a shopping centre"],a:0},
+    {q:"How much were the apples for a kilo?",o:["5,000 sum","10,000 sum","12,000 sum","8,000 sum"],a:3},
+    {q:"What did the old man give them for free?",o:["Tomatoes","A bag","A melon","An apple"],a:2},
+    {q:"Why did Lola not buy the red dress?",o:["It was old","It was too small","It was too long","It was too expensive"],a:1},
+    {q:"How much was the blue dress?",o:["150,000 sum","300,000 sum","100,000 sum","200,000 sum"],a:3},
+    {q:"Why were the shoes cheap?",o:["There was a sale","They were old","They were small","It was a holiday"],a:0},
+    {q:"How did they go home?",o:["By bus","By taxi","On foot","By train"],a:1},
+    {q:"What colour were the shoes the writer bought?",open:["black"]},
+    {q:"What will the writer look for next week?",open:["a warm jacket","warm jacket","jacket","a jacket"]}
+  ]},
+  {t:"Ob-havo",title:"What Is the Weather Like?",text:"The weather in my country is very different from place to place. Today it is sunny and warm in my city. The sky is blue and there are no clouds. But yesterday the weather was bad. It was cloudy and windy, and in the evening it rained a lot. I stayed at home and drank hot tea.\n\nMy cousin lives in the north. There it is very cold in winter. It snows every week and the temperature is minus twenty degrees. In the south it is hot in summer, sometimes forty degrees. People drink cold water and stay in the shade.\n\nTomorrow it will be foggy in the morning, and then it will be warm again. On Friday there will be a storm with thunder and lightning. I do not like storms, so I will not go out. I always check the weather forecast on my phone before I leave the house.",q:[
+    {q:"What is the weather like today?",o:["Rainy and cold","Foggy","Sunny and warm","Windy"],a:2},
+    {q:"What happened yesterday evening?",o:["It rained","It snowed","It was sunny","It was foggy"],a:0},
+    {q:"What did the writer drink yesterday?",o:["Cold water","Hot tea","Juice","Milk"],a:1},
+    {q:"Where does the cousin live?",o:["In the south","In the east","In the west","In the north"],a:3},
+    {q:"How cold is it in the north in winter?",o:["Minus ten","Zero","Minus twenty","Minus thirty"],a:2},
+    {q:"How hot is it in the south in summer?",o:["Thirty degrees","Forty degrees","Fifty degrees","Twenty degrees"],a:1},
+    {q:"What will the weather be like tomorrow morning?",o:["Sunny","Windy","Rainy","Foggy"],a:3},
+    {q:"What will happen on Friday?",o:["A storm","Snow","Fog","A hot day"],a:0},
+    {q:"What does the writer use to check the forecast?",open:["phone","a phone","my phone","his phone","her phone","their phone"]},
+    {q:"What do people drink in the south in summer?",open:["cold water","water"]}
+  ]},
+  {t:"Fasllar va oylar",title:"Four Seasons",text:"There are four seasons in a year: spring, summer, autumn and winter. Each season has three months. Spring starts in March. March, April and May are warm and green. Flowers open, and birds come back. My birthday is in April, so I love this month.\n\nSummer is from June to August. It is hot and sunny. School is closed, and my family goes to the river every weekend. We swim, eat watermelon and play games. July is the hottest month.\n\nAutumn begins in September. The days become shorter and the leaves turn yellow and red. In October we pick apples and grapes in our garden. November is rainy and grey, and I do not like it very much. School starts again in September, so autumn is also a busy time.\n\nWinter comes in December. December, January and February are cold. Sometimes there is snow, and children make a snowman. On the first of January we celebrate the New Year with a big dinner. My favourite season is summer because I can be outside all day. What is your favourite season?",q:[
+    {q:"How many months are in each season?",o:["Two","Four","Three","Six"],a:2},
+    {q:"When does spring start?",o:["In April","In March","In May","In June"],a:1},
+    {q:"Which month is the writer's birthday in?",o:["March","May","April","June"],a:2},
+    {q:"What does the family do at the river in summer?",o:["Fish and sleep","Swim and play games","Ski","Read books"],a:1},
+    {q:"Which is the hottest month?",o:["June","August","July","September"],a:2},
+    {q:"What do they pick in October?",o:["Apples and grapes","Flowers","Melons","Tomatoes"],a:0},
+    {q:"What do children make in winter?",o:["A kite","A cake","A snowman","A boat"],a:2},
+    {q:"Why does the writer like summer best?",o:["It is cold","There is snow","School starts","They can be outside all day"],a:3},
+    {q:"In which month does school start again?",open:["september","in september"]},
+    {q:"What do they celebrate on the first of January?",open:["new year","the new year","new years","new year's day"]}
+  ]},
+  {t:"Hafta kunlari va vaqt",title:"My Busy Week",text:"My week is always busy. On Monday I get up at six o'clock and go to work. I start work at eight and finish at five. On Tuesday and Thursday I go to an English class in the evening. The class begins at half past six and ends at eight. On Wednesday I meet my friend Aziz for lunch at one o'clock. We usually eat at the same café.\n\nOn Friday I finish work early, at three o'clock. I go to the gym for an hour and then I go home. Friday evening is family time. We cook dinner together and watch a film.\n\nSaturday is my favourite day because I can sleep until nine. In the morning I clean the house, and in the afternoon I visit my grandmother. She lives far away, so I leave at quarter past two and arrive at four. On Sunday we rest. We go to the park at about eleven in the morning and come back at five in the afternoon.\n\nThere are seven days in a week, and I think the weekend is too short! I always say that time goes fast when you are happy.",q:[
+    {q:"What time does the writer get up on Monday?",o:["Seven","Six","Eight","Five"],a:1},
+    {q:"What time does work finish on Monday?",o:["Four","Six","Five","Three"],a:2},
+    {q:"On which days is the English class?",o:["Monday and Wednesday","Wednesday and Friday","Saturday and Sunday","Tuesday and Thursday"],a:3},
+    {q:"Who does the writer meet on Wednesday?",o:["A friend, Aziz","A teacher","A brother","A boss"],a:0},
+    {q:"What time does work finish on Friday?",o:["Five","Four","Two","Three"],a:3},
+    {q:"What does the family do on Friday evening?",o:["Go to the cinema","Cook dinner and watch a film","Visit a friend","Go shopping"],a:1},
+    {q:"Who does the writer visit on Saturday afternoon?",o:["The writer's grandmother","A friend","An aunt","A teacher"],a:0},
+    {q:"When do they go to the park on Sunday?",o:["At five","At nine","At about three","At about eleven"],a:3},
+    {q:"What time does the English class begin?",open:["half past six","six thirty","630","half six"]},
+    {q:"How long is the writer at the gym on Friday?",open:["an hour","one hour","1 hour","for an hour"]}
+  ]},
+  {t:"Kundalik tartib",title:"My Daily Routine",text:"My name is Dilnoza and I am a student. I have a simple daily routine. I wake up at six thirty every morning. First I brush my teeth and wash my face. Then I get dressed and have breakfast with my family. I usually eat bread and eggs and drink tea.\n\nAt seven thirty I leave the house and take the bus to university. My lessons start at eight thirty. I study until two o'clock, and then I have lunch with my classmates. In the afternoon I go to the library and do my homework for two hours.\n\nI come home at five o'clock. I help my mother cook dinner and we eat together at seven. After dinner I wash the dishes, and then I watch TV or read a book. Sometimes I call my friend on the phone. I take a shower at ten o'clock and go to bed at half past ten.\n\nOn weekends my routine is different. I get up late, clean my room and go shopping. Today is Sunday, and I am sitting in the garden with a cup of tea. I am happy because I do not have lessons.",q:[
+    {q:"What time does Dilnoza wake up?",o:["Seven","Five thirty","Six thirty","Eight"],a:2},
+    {q:"What does she eat for breakfast?",o:["Rice and milk","Bread and eggs","Fruit only","Soup"],a:1},
+    {q:"How does she go to university?",o:["By bus","On foot","By bike","By car"],a:0},
+    {q:"What time do her lessons start?",o:["Eight","Nine thirty","Seven thirty","Eight thirty"],a:3},
+    {q:"What does she do in the library?",o:["She sleeps","She watches TV","Her homework","She cooks"],a:2},
+    {q:"When do they eat dinner?",o:["At six","At seven","At eight","At five"],a:1},
+    {q:"What time does she go to bed?",o:["Nine","Eleven","Ten","Half past ten"],a:3},
+    {q:"What day is it today?",o:["Sunday","Saturday","Monday","Friday"],a:0},
+    {q:"Who does Dilnoza help cook dinner?",open:["her mother","mother","mum","mom","mother"]},
+    {q:"Where is Dilnoza sitting today?",open:["in the garden","garden","the garden"]}
+  ]},
+  {t:"Sifatlar",title:"My Family and My Town",text:"Let me tell you about my family and my town. My grandfather is old but very strong. He is tall, with white hair and kind eyes. He is also funny, and he tells us interesting stories. My grandmother is short and thin. She is quiet and gentle, and she cooks delicious food.\n\nMy brother Bobur is young, only seven years old. He is noisy and lazy, but he is very clever. He can already read big books. My sister Madina is beautiful and friendly. She has long black hair. Everybody loves her because she is helpful and polite.\n\nOur town is small but very clean. The streets are wide and quiet. Our house is old, but it is comfortable and warm. The garden is large and full of colourful flowers. In the centre of the town there is a famous market. It is always busy and loud, and the fruit is fresh and cheap.\n\nI think my family is wonderful and my town is lovely. I am lucky and happy to live here.",q:[
+    {q:"What is the grandfather like?",o:["Young and weak","Old but strong","Short and thin","Tall and noisy"],a:1},
+    {q:"What colour is the grandfather's hair?",o:["Black","Brown","Grey","White"],a:3},
+    {q:"What is the grandmother like?",o:["Tall and loud","Fat and funny","Short and quiet","Old and lazy"],a:2},
+    {q:"How old is Bobur?",o:["Five","Seven","Ten","Twelve"],a:1},
+    {q:"What can Bobur already do?",o:["Drive a car","Swim","Read big books","Cook"],a:2},
+    {q:"Why does everybody love Madina?",o:["She is helpful and polite","She is rich","She is tall","She is loud"],a:0},
+    {q:"What is the town like?",o:["Big and dirty","Large and noisy","Old and cold","Small but very clean"],a:3},
+    {q:"What is in the centre of the town?",o:["A river","A famous market","A big park","A school"],a:1},
+    {q:"What colour is Madina's hair?",open:["black","long black","long black hair"]},
+    {q:"What is the grandmother's food like?",open:["delicious","very delicious"]}
+  ]},
+  {t:"Sport va hobbilar",title:"Our Hobbies",text:"Everybody needs a hobby. I love sport, and I play football every Saturday with my friends. We play in the park near my house. Our team is not very good, but we have a lot of fun. Last week we won 3-2, and I scored one goal.\n\nMy brother does not like football. He prefers swimming. He goes to the swimming pool three times a week and he can swim very fast. He wants to be a champion one day. My sister plays tennis. She practises on Tuesdays and Thursdays with a coach. She also does yoga in the morning.\n\nMy father likes quiet hobbies. He plays chess and goes fishing at the weekend. He says fishing is relaxing. My mother likes painting and gardening. She paints pictures of flowers and our house. Some of them are on the walls in our living room.\n\nIn winter we do different things. We go skiing in the mountains and play table tennis at home. I also like reading and listening to music. I play the guitar a little, and I am learning a new song now. What are your hobbies? I think a hobby makes life more interesting and keeps us healthy.",q:[
+    {q:"When does the writer play football?",o:["On Sunday","On Saturday","On Friday","On Monday"],a:1},
+    {q:"Where do the friends play?",o:["At school","In a stadium","In the park","At the gym"],a:2},
+    {q:"What was the score last week?",o:["3-2","2-1","1-0","4-3"],a:0},
+    {q:"What sport does the brother prefer?",o:["Football","Tennis","Chess","Swimming"],a:3},
+    {q:"When does the sister practise tennis?",o:["Weekends","Tuesdays and Thursdays","Wednesdays","Mondays and Fridays"],a:1},
+    {q:"What does the father do at the weekend?",o:["Plays tennis and swims","Paints pictures","Plays chess and goes fishing","Goes skiing"],a:2},
+    {q:"What does the mother paint?",o:["Cars","Animals","Walls","Flowers and the house"],a:3},
+    {q:"What instrument does the writer play?",o:["Guitar","Piano","Drums","Violin"],a:0},
+    {q:"How often does the brother go to the swimming pool?",open:["three times a week","3 times a week","three times"]},
+    {q:"What does the sister do in the morning?",open:["yoga","she does yoga","does yoga"]}
+  ]},
+  {t:"Sayohat",title:"A Trip to Turkey",text:"Last summer I travelled to Turkey with my friend Kamola. We planned the trip for two months. First we booked our plane tickets and a hotel on the internet. The tickets were not expensive. We packed our suitcases carefully. I took summer clothes, a camera and a map. Kamola almost forgot her passport, but she found it in time.\n\nWe went to the airport by taxi and checked in. The flight to Istanbul took four hours. When we arrived, a driver took us to our hotel. It was small but clean, and the staff were very friendly. Our room had a beautiful view of the sea.\n\nDuring the week we visited many famous places. We saw the Blue Mosque and walked through the big old market. We bought some gifts for our families there: scarves, sweets and a small lamp. One day we took a boat trip on the sea. It was wonderful. We also tried local food, and my favourite dish was kebab with rice.\n\nOn the last day it rained, so we stayed in the hotel and packed our bags. We were sad to leave, but we took hundreds of photos. Next year we want to visit Italy. I love travelling because I can meet new people and learn about other cultures.",q:[
+    {q:"Who did the writer travel with?",o:["A sister","A friend","A teacher","A cousin"],a:1},
+    {q:"How long did they plan the trip?",o:["Two weeks","One month","Two months","One year"],a:2},
+    {q:"Where did they book the tickets and the hotel?",o:["On the internet","At a travel agency","At the airport","By phone"],a:0},
+    {q:"What did Kamola almost forget?",o:["Her camera","Her ticket","Her bag","Her passport"],a:3},
+    {q:"How long was the flight?",o:["Four hours","Two hours","Six hours","Three hours"],a:0},
+    {q:"What was the hotel like?",o:["Big and expensive","Small but clean","Old and dirty","Far from the sea"],a:1},
+    {q:"What did they buy as gifts?",o:["Shoes and bags","Books","Scarves, sweets and a small lamp","Cameras"],a:2},
+    {q:"Why did they stay in the hotel on the last day?",o:["It rained","They were ill","They had no money","The market was closed"],a:0},
+    {q:"What was the writer's favourite dish?",open:["kebab with rice","kebab","kebab and rice"]},
+    {q:"Which country do they want to visit next year?",open:["italy"]}
+  ]},
+  {t:"Salomatlik va shifokor",title:"At the Doctor",text:"Yesterday I did not feel well. I woke up with a headache and a sore throat. I also had a high temperature and a cough. My mother touched my forehead and said that I was ill. She called the clinic and made an appointment with the doctor for ten o'clock.\n\nThe doctor was a kind young woman. She asked me many questions. How long do you have a cough? Where does it hurt? I told her about my headache and sore throat. She looked into my throat and listened to my chest. She also measured my temperature. It was thirty-eight and a half degrees.\n\nThe doctor said I had a cold and a little fever, but nothing serious. She wrote a prescription for me. I had to take tablets after meals, three times a day, and drink a syrup for the cough. She also told me to stay in bed for three days, drink a lot of warm tea with lemon and eat fruit and vegetables. She said I must not go to school until Monday.\n\nAfter the clinic we went to the pharmacy and bought the medicine. At home I slept for a long time. Today I feel much better, and my temperature is normal. Health is very important. To stay healthy, I will sleep eight hours, do exercise and wash my hands often.",q:[
+    {q:"What was wrong with the writer in the morning?",o:["A broken leg","A headache and a sore throat","A toothache","A stomachache"],a:1},
+    {q:"Who made the appointment?",o:["The writer's father","The writer","The writer's mother","A friend"],a:2},
+    {q:"What time was the appointment?",o:["Nine o'clock","Ten o'clock","Eleven o'clock","Twelve o'clock"],a:1},
+    {q:"What was the writer's temperature?",o:["Thirty-seven degrees","Forty degrees","Thirty-six degrees","Thirty-eight and a half degrees"],a:3},
+    {q:"How many times a day must the writer take tablets?",o:["Once","Twice","Three times","Four times"],a:2},
+    {q:"How many days must the writer stay in bed?",o:["Three","One","Two","Five"],a:0},
+    {q:"Until which day must the writer not go to school?",o:["Friday","Monday","Sunday","Tuesday"],a:1},
+    {q:"Where did they buy the medicine?",o:["At the supermarket","At the market","At the clinic","At the pharmacy"],a:3},
+    {q:"What did the doctor write?",open:["a prescription","prescription"]},
+    {q:"How many hours will the writer sleep?",open:["eight hours","8 hours","eight","8"]}
+  ]},
+  {t:"Tabiat",title:"A Day in the Mountains",text:"Nature is all around us. Last weekend my class went on a trip to the mountains. We left school early in the morning by bus. The road was long, but the view from the window was beautiful. We saw green fields, small rivers and high hills.\n\nWhen we arrived, our teacher showed us a big forest. The trees were tall and old. We walked along a path for two hours. We heard birds singing and saw a squirrel on a tree. A deer ran across the path and disappeared among the trees. We were very quiet because we did not want to frighten the animals.\n\nThen we found a clear stream and a small waterfall. The water was cold and fresh. We sat on the rocks and had lunch. After lunch some students collected leaves and flowers, and others took photos of butterflies. In the afternoon we climbed to the top of the mountain. It was hard work, but the view was amazing. We could see the whole valley, the lake and the sun above the clouds.\n\nBefore we left, our teacher asked us to take all our rubbish with us. She said we must protect nature: do not cut trees, do not make fires and do not throw plastic on the ground. It was the best day of the year, and I want to go there again in spring.",q:[
+    {q:"How did the class go to the mountains?",o:["By train","By bus","By car","By bike"],a:1},
+    {q:"What did they see from the bus window?",o:["Big cities","A desert","Green fields, small rivers and high hills","The sea"],a:2},
+    {q:"How long was the walk in the forest?",o:["One hour","Two hours","Three hours","Thirty minutes"],a:1},
+    {q:"What did they see on a tree?",o:["A snake","A bear","A cat","A squirrel"],a:3},
+    {q:"What ran across the path?",o:["A deer","A fox","A dog","A wolf"],a:0},
+    {q:"What was the water in the stream like?",o:["Warm and dirty","Muddy and brown","Cold and fresh","Hot and salty"],a:2},
+    {q:"Where did they go in the afternoon?",o:["To the lake","To the top of the mountain","Back to school","To a village"],a:1},
+    {q:"What did the teacher ask them to do before they left?",o:["Plant a tree","Make a fire","Pick flowers","Take their rubbish with them"],a:3},
+    {q:"Who showed the students the forest?",open:["the teacher","teacher","their teacher","our teacher"]},
+    {q:"When does the writer want to go there again?",open:["in spring","spring"]}
+  ]},
+  {t:"Restoran",title:"Dinner at a Restaurant",text:"Last Friday was my parents' wedding anniversary, so we went to a restaurant. It is called The Garden and it is in the city centre. My father booked a table for five people the day before. When we arrived, a waiter welcomed us and took us to a table near the window.\n\nThe waiter gave us the menu. There were many dishes, and it was difficult to choose. My father ordered grilled meat with salad. My mother wanted fish, but the waiter said there was no fish that day, so she asked for chicken soup and rice. My sister is a vegetarian, and she chose a vegetable pizza. I was very hungry, so I ordered a big burger with chips. My little brother wanted pasta with cheese. For drinks, we asked for water, orange juice and green tea.\n\nThe food came after twenty minutes. It was hot and delicious. The soup was a little salty, but everybody enjoyed the meal. For dessert we shared a big chocolate cake and ice cream. My father asked for the bill, and he paid by card. He also left a tip for the waiter because the service was excellent.\n\nWe stayed there for two hours and talked a lot. My parents were very happy. On the way home my mother said that it was a perfect evening. I want to eat at that restaurant again.",q:[
+    {q:"What is the restaurant called?",o:["The Moon","The Garden","The Star","The River"],a:1},
+    {q:"Why did the family go to the restaurant?",o:["A birthday","A school party","Their parents' wedding anniversary","A holiday"],a:2},
+    {q:"How many people was the table for?",o:["Three","Four","Six","Five"],a:3},
+    {q:"Why did the mother not order fish?",o:["There was no fish that day","She did not like it","It was expensive","It was too salty"],a:0},
+    {q:"What did the sister order?",o:["A burger","Pasta","Chicken soup","A vegetable pizza"],a:3},
+    {q:"How long did the food take to come?",o:["Five minutes","Ten minutes","Twenty minutes","One hour"],a:2},
+    {q:"What was a little salty?",o:["The soup","The cake","The rice","The pizza"],a:0},
+    {q:"Why did the father leave a tip?",o:["The food was cheap","The service was excellent","The waiter was his friend","The restaurant was empty"],a:1},
+    {q:"How did the father pay?",open:["by card","card","with a card","by credit card"]},
+    {q:"What did the little brother order?",open:["pasta with cheese","pasta","pasta and cheese"]}
+  ]},
+  {t:"Texnologiya",title:"Technology in My Life",text:"Technology is a big part of our lives. I use many devices every day. The most important one is my smartphone. I use it to call my family, send messages, take photos and check the news. I also use apps to learn English and listen to music. My phone battery is weak, so I charge it every night.\n\nAt home we have a laptop, a tablet and a smart TV. My father works on the laptop. He writes emails and joins online meetings. My mother likes the tablet. She watches cooking videos and finds new recipes on the internet. My little brother plays games on the tablet, but we do not let him play for more than one hour. Too much screen time is bad for the eyes.\n\nAt school we have computers in the classroom. The teacher shows us lessons on a big screen, and we search for information online. Last month I made a short video for my project. I recorded it with my phone and edited it on a computer. My classmates liked it a lot.\n\nTechnology is useful, but it has problems too. Sometimes the internet is slow, or the computer does not work. Also, people often look at their phones instead of talking to each other. Last week my grandfather bought his first phone. I taught him how to take a selfie. He laughed and was very proud. I think we should use technology, but we must remember to spend time with real people, too.",q:[
+    {q:"What is the writer's most important device?",o:["The laptop","The tablet","The smartphone","The smart TV"],a:2},
+    {q:"Why does the writer charge the phone every night?",o:["It is new","It is old","It is slow","The battery is weak"],a:3},
+    {q:"What does the father do on the laptop?",o:["Plays games","Writes emails and joins online meetings","Watches cartoons","Cooks"],a:1},
+    {q:"What does the mother watch on the tablet?",o:["Football","News","Cooking videos","Films"],a:2},
+    {q:"How long can the little brother play?",o:["No more than one hour","Three hours","All day","Two hours"],a:0},
+    {q:"What did the writer make for a project?",o:["A song","A short video","A book","A website"],a:1},
+    {q:"What is one problem of technology?",o:["Phones are cheap","Computers are small","Screens are big","The internet is sometimes slow"],a:3},
+    {q:"What did the writer teach the grandfather?",o:["To send emails","To take a selfie","To play games","To make calls"],a:1},
+    {q:"What did the grandfather buy last week?",open:["a phone","his first phone","phone","first phone","a smartphone"]},
+    {q:"What is bad for the eyes?",open:["too much screen time","screen time"]}
+  ]},
+  {t:"His-tuyg'ular",title:"A Day of Feelings",text:"Everybody has feelings, and they change every day. Yesterday was a day with many emotions for me. In the morning I was happy because it was my birthday. My family gave me a big cake and a new bicycle. I smiled all morning, and I felt very lucky.\n\nAt school I was a little nervous. We had an important English test, and I was afraid of making mistakes. My hands were cold and my heart was beating fast. Then I opened the paper and saw that the questions were easy. I felt calm and relaxed. After the test my teacher said I did very well, and I felt proud.\n\nIn the afternoon my best friend Jasur came to my party. He looked sad. I asked him what was wrong. He told me his dog was ill and he was worried. I felt sorry for him. I hugged him and said the dog would be fine. Later Jasur called the vet, and the news was good. He was very surprised and happy. Then we both laughed.\n\nIn the evening I was tired but still excited. My cousin was angry at first because someone broke his toy, but he soon forgot about it. When the guests went home, I felt a little lonely, but I also felt grateful. I think it is normal to feel different emotions. Talking to friends and family helps us feel better when we are sad or angry.",q:[
+    {q:"Why was the writer happy in the morning?",o:["It was a holiday","It was the writer's birthday","It was Friday","School was closed"],a:1},
+    {q:"What did the family give the writer?",o:["A phone and a book","A dog","A computer","A big cake and a new bicycle"],a:3},
+    {q:"Why was the writer nervous at school?",o:["A fight with a friend","An important English test","A new teacher","Lost homework"],a:1},
+    {q:"How did the writer feel when the questions were easy?",o:["Angry","Sad","Calm and relaxed","Lonely"],a:2},
+    {q:"What was wrong with Jasur?",o:["His dog was ill","His bike was broken","He lost his phone","He was hungry"],a:0},
+    {q:"Who did Jasur call?",o:["The teacher","The doctor","His mother","The vet"],a:3},
+    {q:"Why was the cousin angry?",o:["He lost a game","Someone broke his toy","He was hungry","He was tired"],a:1},
+    {q:"How did the writer feel when the guests went home?",o:["Very angry","Afraid","A little lonely but grateful","Bored"],a:2},
+    {q:"What is the name of the writer's best friend?",open:["jasur"]},
+    {q:"How did the writer feel after the teacher's words?",open:["proud","very proud","i felt proud"]}
+  ]}
+]);
+
+</script>
+<script>
+const WORDS=window.WORDS,GR=window.GRAMMAR,TX=window.TEXTS;
+const KEY="inglizcha_v2";
+let S={start:"",sec:{},res:{}};
+try{S=Object.assign(S,JSON.parse(localStorage.getItem(KEY)||"{}"))}catch(e){}
+const save=()=>{try{localStorage.setItem(KEY,JSON.stringify(S))}catch(e){}};
+const p2=n=>String(n).padStart(2,"0");
+const today=()=>{const d=new Date();return d.getFullYear()+"-"+p2(d.getMonth()+1)+"-"+p2(d.getDate())};
+const toNum=s=>{const a=s.split("-").map(Number);return Date.UTC(a[0],a[1]-1,a[2])/864e5};
+const dstr=n=>{const d=new Date(n*864e5);return d.getUTCFullYear()+"-"+p2(d.getUTCMonth()+1)+"-"+p2(d.getUTCDate())};
+if(!S.start){S.start=today();save()}
+const rawDay=()=>Math.max(1,toNum(today())-toNum(S.start)+1);
+const dayNo=()=>Math.min(30,rawDay());
+
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const $=id=>document.getElementById(id);
+const app=$("app");
+let view="",tick=0;
+const shuffle=a=>{a=[...a];for(let i=a.length-1;i>0;i--){const j=Math.random()*(i+1)|0;[a[i],a[j]]=[a[j],a[i]]}return a};
+function speak(t){try{speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(t);u.lang="en-US";u.rate=.9;speechSynthesis.speak(u)}catch(e){}}
+function go(v,html){view=v;app.innerHTML=html;window.scrollTo(0,0)}
+function toast(m){const t=$("toast");t.textContent=m;t.classList.add("on");clearTimeout(toast.h);toast.h=setTimeout(()=>t.classList.remove("on"),2200)}
+
+/* Vaqtni hisoblash: ilova ochiq turgan soniyalar */
+setInterval(()=>{
+  if(document.visibilityState!=="visible")return;
+  const t=today();S.sec[t]=(S.sec[t]||0)+1;tick++;
+  if(tick%10===0)save();
+  if(view==="daily"&&tick%20===0)daily();
+},1000);
+document.addEventListener("visibilitychange",()=>{if(document.hidden)save()});
+window.addEventListener("pagehide",save);
+
+const icon=s=>s>=1800?"🔥":s>0?"❤️‍🔥":"🧊";
+
+function menu(){
+  const t=S.sec[today()]||0;
+  go("menu",`<div class="brand"><div class="lg"><img src="data:image/png;base64,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" alt="ELZOD"></div><div><div class="bt">ENGLISH TILZINA 1</div><div class="bs">ELZOD ECO TIZIMI</div></div></div>
+  <div class="hero">
+    <div><b>${dayNo()}-kun</b><span>30 kundan</span></div>
+    <div><b>${icon(t)} ${Math.floor(t/60)} daq</b><span>bugun (maqsad: 30)</span></div>
+  </div>
+  <button class="menu" data-go="daily"><i>🔥</i><b>Kun tartibi</b><span>30 kunlik yo'l</span></button>
+  <button class="menu" data-go="v"><i>📖</i><b>Lug'at</b><span>30 mavzu · 20 tadan so'z · testlar</span></button>
+  <button class="menu" data-go="g"><i>🧩</i><b>Grammatika</b><span>30 mavzu · 15 talik testlar</span></button>
+  <button class="menu" data-go="t"><i>📰</i><b>Matnlar</b><span>30 matn · 10 talik testlar</span></button>`);
+  app.querySelectorAll("[data-go]").forEach(b=>b.onclick=()=>{const k=b.dataset.go;k==="daily"?daily():list(k)});
+}
+
+function daily(){
+  const rd=rawDay(),st=toNum(S.start);
+  let cells="";
+  for(let i=0;i<30;i++){
+    const n=i+1;
+    if(n>rd)cells+=`<div class="cell fut">${n}</div>`;
+    else{const s=S.sec[dstr(st+i)]||0;cells+=`<div class="cell ${n===rd?"now":""}"><small>${n}</small>${icon(s)}</div>`}
+  }
+  const t=S.sec[today()]||0;
+  go("daily",`<button class="back" id="bk">← Orqaga</button><h2>Kun tartibi</h2>
+  <div class="meta" style="margin-bottom:10px">Bugun: ${Math.floor(t/60)} daqiqa ${t%60} soniya</div>
+  <div class="grid5">${cells}</div>
+  <div class="legend"><div>🔥 30 daqiqa yoki undan ko'p ishlatdingiz</div><div>❤️‍🔥 Kirdingiz, lekin 30 daqiqadan kam</div><div>🧊 Kirmadingiz</div></div>`);
+  $("bk").onclick=menu;
+}
+
+const KIND={v:{name:"Lug'at",data:()=>WORDS,tn:20},g:{name:"Grammatika",data:()=>GR,tn:15},t:{name:"Matnlar",data:()=>TX,tn:10}};
+function list(kind){
+  const K=KIND[kind],D=K.data(),dn=dayNo();
+  const tile=(n,a)=>{
+    const lock=n>dn,r=S.res[kind+n];
+    const top=a==="l"?`${n}-kun`:(r?`✓ ${r.s}/${r.t}`:`${n}-test`);
+    return `<button class="tile ${lock?"lock":""} ${a==="q"&&r?"done":""}" data-n="${n}" data-a="${a}"><b>${lock?"🔒 ":""}${top}</b><span>${esc(D[n-1].t)}</span></button>`;
+  };
+  let a="",b="";
+  for(let n=1;n<=30;n++){a+=tile(n,"l");b+=tile(n,"q")}
+  go("list-"+kind,`<button class="back" id="bk">← Orqaga</button><h2>${K.name}</h2>
+  <div class="meta">Har kuni bitta yangi mavzu ochiladi.</div>
+  <div class="sec">${kind==="v"?"LUG'AT":kind==="g"?"DARSLAR":"MATNLAR"} (30)</div><div class="grid2">${a}</div>
+  <div class="sec">TESTLAR (30 ta · ${K.tn} savoldan)</div><div class="grid2">${b}</div>`);
+  $("bk").onclick=menu;
+  app.querySelectorAll(".tile").forEach(el=>el.onclick=()=>{
+    const n=+el.dataset.n;
+    if(n>dn){toast(`Bu mavzu ${n}-kuni ochiladi 🔒`);return}
+    el.dataset.a==="l"?learn(kind,n):startTest(kind,n);
+  });
+}
+
+function learn(kind,n){
+  const back=()=>list(kind),d=KIND[kind].data()[n-1];
+  let h=`<button class="back" id="bk">← Orqaga</button><h2>${n}. ${esc(d.t)}</h2>`;
+  if(kind==="v"){
+    h+=`<div class="words">${d.w.map((w,i)=>`<div class="wr"><span class="n">${i+1}</span><span class="e">${esc(w[0])}</span><span class="u">${esc(w[1])}</span><button class="spk" data-s="${i}" aria-label="Tinglash">🔊</button></div>`).join("")}</div>`;
+  }else if(kind==="g"){
+    h+=`<div class="box">${d.rule.split("\n").map(x=>`<p>${esc(x)}</p>`).join("")}</div>
+    <div class="sec">MISOLLAR</div><div class="box">${d.ex.map(e=>`<div class="ex"><b>${esc(e[0])}</b><span>${esc(e[1])}</span></div>`).join("")}</div>`;
+  }else{
+    h+=`<div class="meta">${esc(d.title)}</div><div class="box" style="margin-top:8px">${d.text.split(/\n+/).map(x=>`<p>${esc(x)}</p>`).join("")}</div>
+    <button class="big alt" id="lis">🔊 Tinglash</button>`;
+  }
+  h+=`<button class="big" id="ts">✏️ Testni boshlash</button>`;
+  go("learn",h);
+  $("bk").onclick=back;$("ts").onclick=()=>startTest(kind,n);
+  app.querySelectorAll("[data-s]").forEach(b=>b.onclick=()=>speak(d.w[+b.dataset.s][0]));
+  if($("lis"))$("lis").onclick=()=>speak(d.text);
+}
+
+/* Test savollarini tayyorlash */
+function shufOpts(q){
+  const c=q.o[q.a],o=shuffle(q.o);
+  return Object.assign({},q,{o,a:o.indexOf(c)});
+}
+function mkVocab(n){
+  const w=WORDS[n-1].w;
+  const qs=w.map((p,i)=>{
+    const toUz=i%2===0,side=toUz?1:0;
+    const wrong=shuffle(w.filter((x,j)=>j!==i)).slice(0,3).map(x=>x[side]);
+    const o=shuffle([p[side],...wrong]);
+    return {q:p[toUz?0:1],h:toUz?"O'zbekchasini tanlang":"Inglizchasini tanlang",say:toUz?p[0]:null,o,a:o.indexOf(p[side])};
+  });
+  return shuffle(qs);
+}
+function startTest(kind,n){
+  const D=KIND[kind].data()[n-1],title=`${n}. ${D.t}`;
+  const mk=kind==="v"?()=>mkVocab(n):kind==="g"?()=>shuffle(D.q).map(shufOpts):()=>D.q.map(q=>q.o?shufOpts(q):q);
+  quiz(mk,kind+n,()=>list(kind),title);
+}
+const norm=s=>String(s).toLowerCase().replace(/'/g,"").replace(/[^a-z0-9 ]/g," ").replace(/\s+/g," ").trim().replace(/^(the|a|an) /,"");
+
+function quiz(mk,key,back,title){
+  const qs=mk();let i=0,score=0;
+  const draw=()=>{
+    if(i>=qs.length){
+      const prev=S.res[key];if(!prev||score>prev.s)S.res[key]={s:score,t:qs.length};
+      S.sec[today()]=S.sec[today()]||1;save();
+      const p=score/qs.length;
+      go("res",`<div class="center"><h2>${esc(title)}</h2><div class="score">${score}/${qs.length}</div>
+      <p>${p>=.8?"Ajoyib! 🎉":p>=.5?"Yaxshi, davom eting! 💪":"Yana mashq qiling, albatta chiqadi! 🌱"}</p>
+      <button class="big" id="ag">Qayta topshirish</button><button class="big alt" id="bk">Orqaga</button></div>`);
+      $("ag").onclick=()=>quiz(mk,key,back,title);$("bk").onclick=back;return;
+    }
+    const q=qs[i];
+    let h=`<button class="back" id="bk">← Orqaga</button><div class="meta">${esc(title)} · ${i+1}/${qs.length}</div>
+    <div class="bar"><i style="width:${i/qs.length*100}%"></i></div>
+    ${q.h?`<div class="meta center" style="margin-top:14px">${esc(q.h)}</div>`:(q.open?`<div class="meta center" style="margin-top:14px">Javobni yozing</div>`:"")}
+    <div class="q">${esc(q.q)}</div>${q.say?`<div class="center"><button class="spk" id="sp" aria-label="Tinglash">🔊</button></div>`:""}`;
+    if(q.o)h+=q.o.map((o,k)=>`<button class="opt" data-k="${k}">${esc(o)}</button>`).join("");
+    else h+=`<input class="in" id="in" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="Javobingiz..."><div id="fb"></div><button class="big" id="ck">Tekshirish</button>`;
+    go("quiz",h);
+    $("bk").onclick=back;
+    if(q.say)$("sp").onclick=()=>speak(q.say);
+    let done=false;
+    if(q.o){
+      app.querySelectorAll(".opt").forEach(b=>b.onclick=()=>{
+        if(done)return;done=true;
+        const ok=+b.dataset.k===q.a;
+        if(ok){score++;b.classList.add("ok")}
+        else{b.classList.add("no");app.querySelectorAll(".opt")[q.a].classList.add("ok")}
+        setTimeout(()=>{i++;draw()},ok?700:1500);
+      });
+    }else{
+      const inp=$("in"),ck=$("ck");
+      const check=()=>{
+        if(done){i++;draw();return}
+        const v=inp.value;if(!norm(v)){inp.focus();return}
+        done=true;inp.disabled=true;
+        const ok=q.open.some(x=>norm(x)===norm(v));
+        if(ok)score++;
+        $("fb").innerHTML=ok?`<div class="fb ok">✅ To'g'ri!</div>`:`<div class="fb no">❌ To'g'ri javob: <b>${esc(q.open[0])}</b></div>`;
+        ck.textContent=i+1>=qs.length?"Natijani ko'rish":"Keyingisi";
+      };
+      ck.onclick=check;
+      inp.onkeydown=e=>{if(e.key==="Enter")check()};
+      inp.focus();
+    }
+  };
+  draw();
+}
+
+menu();
+if("serviceWorker"in navigator)navigator.serviceWorker.register("tilzina1-sw.js").catch(()=>{});
+</script>
+</body>
+</html>
